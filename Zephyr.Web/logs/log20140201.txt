@@ -1,0 +1,233 @@
+2014-02-01 11:23:57,701 [7656] DEBUG Servicesys_user - 获取实体对象
+2014-02-01 11:24:14,428 [7656] ERROR Servicesys_user - 获取实体对象失败
+System.Data.SqlClient.SqlException (0x80131904): 在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: Named Pipes Provider, error: 40 - 无法打开到 SQL Server 的连接) ---> System.ComponentModel.Win32Exception (0x80004005): 系统找不到指定的文件。
+   在 Zephyr.Data.ExecuteQueryHandler.HandleQueryException(Exception exception) 位置 e:\private\项目源码\萧勤源码\Zephyr.Net框架源码20131022\source20131022\Zephyr.Net\Zephyr.Data\Command\Handlers\ExecuteQueryHandler.cs:行号 107
+   在 Zephyr.Data.ExecuteQueryHandler.ExecuteQuery(Boolean useReader, Action action) 位置 e:\private\项目源码\萧勤源码\Zephyr.Net框架源码20131022\source20131022\Zephyr.Net\Zephyr.Data\Command\Handlers\ExecuteQueryHandler.cs:行号 28
+   在 Zephyr.Data.DbCommand.QuerySingle[TEntity](Action`2 customMapper) 位置 e:\private\项目源码\萧勤源码\Zephyr.Net框架源码20131022\source20131022\Zephyr.Net\Zephyr.Data\Command\PartialClasses\QuerySingle.cs:行号 12
+   在 Zephyr.Data.SelectBuilder`1.QuerySingle(Action`2 customMapper) 位置 e:\private\项目源码\萧勤源码\Zephyr.Net框架源码20131022\source20131022\Zephyr.Net\Zephyr.Data\Builders\Select\SelectBuilder.cs:行号 129
+   在 Zephyr.Core.ServiceBase`1.<>c__DisplayClass70.<GetModel>b__6f() 位置 e:\private\项目源码\萧勤源码\Zephyr.Net框架源码20131022\source20131022\Zephyr.Net\Zephyr.Core\Base\ServiceBaseQuery.cs:行号 51
+   在 Zephyr.Core.LogHelper.Logger(ILog log, String function, ErrorHandle errorHandleType, Action tryHandle, Action`1 catchHandle, Action finallyHandle) 位置 e:\private\项目源码\萧勤源码\Zephyr.Net框架源码20131022\source20131022\Zephyr.Net\Zephyr.Core\Logs\LogHelper.cs:行号 44
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+2014-02-01 11:24:14,545 [7656] ERROR /login/doAction - System.Data.SqlClient.SqlException (0x80131904): 在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: Named Pipes Provider, error: 40 - 无法打开到 SQL Server 的连接) ---> System.ComponentModel.Win32Exception (0x80004005): 系统找不到指定的文件。
+   在 Zephyr.Core.LogHelper.Logger(ILog log, String function, ErrorHandle errorHandleType, Action tryHandle, Action`1 catchHandle, Action finallyHandle) 位置 e:\private\项目源码\萧勤源码\Zephyr.Net框架源码20131022\source20131022\Zephyr.Net\Zephyr.Core\Logs\LogHelper.cs:行号 54
+   在 Zephyr.Core.ServiceBase`1.Logger(String function, Action tryHandle, Action`1 catchHandle, Action finallyHandle) 位置 e:\private\项目源码\萧勤源码\Zephyr.Net框架源码20131022\source20131022\Zephyr.Net\Zephyr.Core\Base\ServiceBaseLog.cs:行号 23
+   在 Zephyr.Core.ServiceBase`1.GetModel(ParamQuery param) 位置 e:\private\项目源码\萧勤源码\Zephyr.Net框架源码20131022\source20131022\Zephyr.Net\Zephyr.Core\Base\ServiceBaseQuery.cs:行号 51
+   在 Zephyr.Models.sys_userService.Login(JObject request) 位置 e:\private\项目源码\萧勤源码\Zephyr.Net框架源码20131022\source20131022\Zephyr.Web\Areas\Sys\Models\sys_user.cs:行号 24
+   在 Zephyr.Controllers.LoginController.DoAction(JObject request) 位置 e:\private\项目源码\萧勤源码\Zephyr.Net框架源码20131022\source20131022\Zephyr.Web\Controllers\LoginController.cs:行号 42
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+2014-02-01 11:24:30,240 [9836] DEBUG Servicesys_user - 获取实体对象
+2014-02-01 11:24:46,960 [9836] ERROR Servicesys_user - 获取实体对象失败
+System.Data.SqlClient.SqlException (0x80131904): 在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: Named Pipes Provider, error: 40 - 无法打开到 SQL Server 的连接) ---> System.ComponentModel.Win32Exception (0x80004005): 系统找不到指定的文件。
+   在 Zephyr.Data.ExecuteQueryHandler.HandleQueryException(Exception exception) 位置 e:\private\项目源码\萧勤源码\Zephyr.Net框架源码20131022\source20131022\Zephyr.Net\Zephyr.Data\Command\Handlers\ExecuteQueryHandler.cs:行号 107
+   在 Zephyr.Data.ExecuteQueryHandler.ExecuteQuery(Boolean useReader, Action action) 位置 e:\private\项目源码\萧勤源码\Zephyr.Net框架源码20131022\source20131022\Zephyr.Net\Zephyr.Data\Command\Handlers\ExecuteQueryHandler.cs:行号 28
+   在 Zephyr.Data.DbCommand.QuerySingle[TEntity](Action`2 customMapper) 位置 e:\private\项目源码\萧勤源码\Zephyr.Net框架源码20131022\source20131022\Zephyr.Net\Zephyr.Data\Command\PartialClasses\QuerySingle.cs:行号 12
+   在 Zephyr.Data.SelectBuilder`1.QuerySingle(Action`2 customMapper) 位置 e:\private\项目源码\萧勤源码\Zephyr.Net框架源码20131022\source20131022\Zephyr.Net\Zephyr.Data\Builders\Select\SelectBuilder.cs:行号 129
+   在 Zephyr.Core.ServiceBase`1.<>c__DisplayClass70.<GetModel>b__6f() 位置 e:\private\项目源码\萧勤源码\Zephyr.Net框架源码20131022\source20131022\Zephyr.Net\Zephyr.Core\Base\ServiceBaseQuery.cs:行号 51
+   在 Zephyr.Core.LogHelper.Logger(ILog log, String function, ErrorHandle errorHandleType, Action tryHandle, Action`1 catchHandle, Action finallyHandle) 位置 e:\private\项目源码\萧勤源码\Zephyr.Net框架源码20131022\source20131022\Zephyr.Net\Zephyr.Core\Logs\LogHelper.cs:行号 44
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+2014-02-01 11:24:46,967 [9836] ERROR /login/doAction - System.Data.SqlClient.SqlException (0x80131904): 在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: Named Pipes Provider, error: 40 - 无法打开到 SQL Server 的连接) ---> System.ComponentModel.Win32Exception (0x80004005): 系统找不到指定的文件。
+   在 Zephyr.Core.LogHelper.Logger(ILog log, String function, ErrorHandle errorHandleType, Action tryHandle, Action`1 catchHandle, Action finallyHandle) 位置 e:\private\项目源码\萧勤源码\Zephyr.Net框架源码20131022\source20131022\Zephyr.Net\Zephyr.Core\Logs\LogHelper.cs:行号 54
+   在 Zephyr.Core.ServiceBase`1.Logger(String function, Action tryHandle, Action`1 catchHandle, Action finallyHandle) 位置 e:\private\项目源码\萧勤源码\Zephyr.Net框架源码20131022\source20131022\Zephyr.Net\Zephyr.Core\Base\ServiceBaseLog.cs:行号 23
+   在 Zephyr.Core.ServiceBase`1.GetModel(ParamQuery param) 位置 e:\private\项目源码\萧勤源码\Zephyr.Net框架源码20131022\source20131022\Zephyr.Net\Zephyr.Core\Base\ServiceBaseQuery.cs:行号 51
+   在 Zephyr.Models.sys_userService.Login(JObject request) 位置 e:\private\项目源码\萧勤源码\Zephyr.Net框架源码20131022\source20131022\Zephyr.Web\Areas\Sys\Models\sys_user.cs:行号 24
+   在 Zephyr.Controllers.LoginController.DoAction(JObject request) 位置 e:\private\项目源码\萧勤源码\Zephyr.Net框架源码20131022\source20131022\Zephyr.Web\Controllers\LoginController.cs:行号 42
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+2014-01-28 11:45:24,397 [8424] DEBUG Servicesys_user - 获取实体对象
+2014-01-28 11:45:24,551 [8424] DEBUG Sys - select sys_user.* from sys_user where  UserCode =  'admin'and Password =  'admin'and IsEnable =  'True'
+2014-01-28 11:45:25,003 [8424] DEBUG Sys - 
+update sys_user
+set LoginCount = isnull(LoginCount,0) + 1
+   ,LastLoginDate = getdate()
+where UserCode = 'admin' 
+2014-01-28 11:45:25,217 [8424] DEBUG Sys - insert into sys_loginHistory([UserCode],[UserName],[HostName],[HostIP],[LoginCity],[LoginDate]) values('admin','管理员','fwytech-PC','localhost','安徽省宣城市','2014/1/28 11:45:25')
+2014-01-28 11:45:25,285 [8424] DEBUG Servicemms_project - 获取实体对象
+2014-01-28 11:45:25,287 [8424] DEBUG Mms - select mms_project.* from mms_project where  ProjectCode =  '201306030001'
+2014-01-28 11:45:25,546 [9416] DEBUG Sys - select * from sys_userSetting where UserCode='admin'
+2014-01-28 11:45:35,652 [7840] DEBUG Sys - 
+--角色的菜单
+select distinct B.*
+from sys_roleMenuMap A
+inner join sys_menu  B on B.MenuCode = A.MenuCode
+where B.IsEnable='1'
+  and RoleCode in (
+  select RoleCode from sys_userRoleMap where UserCode = 'admin' --用户的角色
+union all
+  select RoleCode from sys_organizeRoleMap where OrganizeCode in  --机构的角色
+  (
+	select OrganizeCode from sys_userOrganizeMap where UserCode = 'admin'
+  )  
+)
+order by B.MenuSeq,B.MenuCode
+2014-01-28 12:11:22,291 [12664] DEBUG Sys - 
+select 1
+from sys_roleMenuMap A
+left join sys_userRoleMap B on B.RoleCode = A.RoleCode
+left join sys_menu C on C.MenuCode = A.MenuCode
+where B.UserCode = 'admin'
+and C.URL in ('/Sys/code/Index','/Sys/code')
+2014-01-28 12:11:24,771 [11708] DEBUG Servicesys_codeType - 获取动态列表
+2014-01-28 12:11:24,772 [11708] DEBUG Sys - select sys_codeType.* from sys_codeType order by Seq,CodeType
+2014-01-28 12:11:24,866 [12616] DEBUG Servicesys_code - 获取实体列表
+2014-01-28 12:11:24,870 [12616] DEBUG Sys - select top 20 sys_code.* from sys_code order by Seq
+2014-01-28 12:11:24,916 [12616] DEBUG Sys - select count(*) from ( select sys_code.* from sys_code ) tb_temp
+2014-01-28 12:11:31,181 [10672] DEBUG Sys - 
+select 1
+from sys_roleMenuMap A
+left join sys_userRoleMap B on B.RoleCode = A.RoleCode
+left join sys_menu C on C.MenuCode = A.MenuCode
+where B.UserCode = 'admin'
+and C.URL in ('/Sys/user/Index','/Sys/user')
+2014-01-28 12:11:32,875 [11708] DEBUG Servicesys_organize - 获取实体列表
+2014-01-28 12:11:32,876 [11708] DEBUG Sys - select sys_organize.* from sys_organize
+2014-01-28 12:11:32,906 [1192] DEBUG Servicesys_user - 获取实体列表
+2014-01-28 12:11:32,906 [1192] DEBUG Sys - select top 20 sys_user.* from sys_user order by UserSeq
+2014-01-28 12:11:32,945 [1192] DEBUG Sys - select count(*) from ( select sys_user.* from sys_user ) tb_temp
+2014-01-28 12:11:34,347 [10672] DEBUG Sys - 
+select 1
+from sys_roleMenuMap A
+left join sys_userRoleMap B on B.RoleCode = A.RoleCode
+left join sys_menu C on C.MenuCode = A.MenuCode
+where B.UserCode = 'admin'
+and C.URL in ('/Sys/parameter/Index','/Sys/parameter')
+2014-01-28 12:11:35,505 [10672] DEBUG Servicesys_parameter - 获取实体列表
+2014-01-28 12:11:35,506 [10672] DEBUG Sys - select top 20 sys_parameter.* from sys_parameter order by ParamCode
+2014-01-28 12:11:35,547 [10672] DEBUG Sys - select count(*) from ( select sys_parameter.* from sys_parameter ) tb_temp
+2014-01-28 12:11:38,093 [10672] DEBUG Sys - 
+select 1
+from sys_roleMenuMap A
+left join sys_userRoleMap B on B.RoleCode = A.RoleCode
+left join sys_menu C on C.MenuCode = A.MenuCode
+where B.UserCode = 'admin'
+and C.URL in ('/Sys/log/Index','/Sys/log')
+2014-01-28 12:11:39,667 [12664] DEBUG Servicesys_loginHistory - 获取实体列表
+2014-01-28 12:11:39,667 [12664] DEBUG Sys - select top 20 
+        A.*
+     from 
+        sys_loginHistory A
+     order by A.ID desc
+2014-01-28 12:11:39,680 [12664] DEBUG Sys - select count(*) from ( select 
+        A.*
+     from 
+        sys_loginHistory A
+     ) tb_temp
+2014-01-28 12:11:39,681 [10672] DEBUG Servicesys_log - 获取实体列表
+2014-01-28 12:11:39,691 [10672] DEBUG Sys - select top 20 
+        A.*
+     from 
+        sys_log A
+     order by A.ID desc
+2014-01-28 12:11:39,907 [10672] DEBUG Sys - select count(*) from ( select 
+        A.*
+     from 
+        sys_log A
+     ) tb_temp
+2014-01-28 12:13:41,847 [11984] DEBUG Sys - 
+select 1
+from sys_roleMenuMap A
+left join sys_userRoleMap B on B.RoleCode = A.RoleCode
+left join sys_menu C on C.MenuCode = A.MenuCode
+where B.UserCode = 'admin'
+and C.URL in ('/Sys/user/Index','/Sys/user')
+2014-01-28 12:13:42,267 [12616] DEBUG Servicesys_organize - 获取实体列表
+2014-01-28 12:13:42,267 [12616] DEBUG Sys - select sys_organize.* from sys_organize
+2014-01-28 12:13:42,407 [11976] DEBUG Servicesys_user - 获取实体列表
+2014-01-28 12:13:42,407 [11976] DEBUG Sys - select top 20 sys_user.* from sys_user order by UserSeq
+2014-01-28 12:13:42,410 [11976] DEBUG Sys - select count(*) from ( select sys_user.* from sys_user ) tb_temp
+2014-01-28 12:14:04,225 [11976] DEBUG Servicesys_user - 获取实体列表
+2014-01-28 12:14:04,226 [11976] DEBUG Sys - select top 20 sys_user.* from sys_user where  UserCode in (select UserCode from sys_userOrganizeMap where OrganizeCode in (select ID from [dbo].[GetChild]('sys_organize','040201'))) order by UserSeq
+2014-01-28 12:14:04,467 [11976] DEBUG Sys - select count(*) from ( select sys_user.* from sys_user where  UserCode in (select UserCode from sys_userOrganizeMap where OrganizeCode in (select ID from [dbo].[GetChild]('sys_organize','040201'))) ) tb_temp
+2014-01-28 12:14:06,383 [11868] DEBUG Servicesys_user - 获取实体列表
+2014-01-28 12:14:06,384 [11868] DEBUG Sys - select top 20 sys_user.* from sys_user where  UserCode in (select UserCode from sys_userOrganizeMap where OrganizeCode in (select ID from [dbo].[GetChild]('sys_organize','040202'))) order by UserSeq
+2014-01-28 12:14:06,408 [11868] DEBUG Sys - select count(*) from ( select sys_user.* from sys_user where  UserCode in (select UserCode from sys_userOrganizeMap where OrganizeCode in (select ID from [dbo].[GetChild]('sys_organize','040202'))) ) tb_temp
+2014-01-28 12:14:08,405 [11932] DEBUG Servicesys_user - 获取实体列表
+2014-01-28 12:14:08,405 [11932] DEBUG Sys - select top 20 sys_user.* from sys_user where  UserCode in (select UserCode from sys_userOrganizeMap where OrganizeCode in (select ID from [dbo].[GetChild]('sys_organize','0401'))) order by UserSeq
+2014-01-28 12:14:08,477 [11932] DEBUG Sys - select count(*) from ( select sys_user.* from sys_user where  UserCode in (select UserCode from sys_userOrganizeMap where OrganizeCode in (select ID from [dbo].[GetChild]('sys_organize','0401'))) ) tb_temp
+2014-01-28 12:14:10,340 [12616] DEBUG Servicesys_user - 获取实体列表
+2014-01-28 12:14:10,341 [12616] DEBUG Sys - select top 20 sys_user.* from sys_user where  UserCode in (select UserCode from sys_userOrganizeMap where OrganizeCode in (select ID from [dbo].[GetChild]('sys_organize','0405'))) order by UserSeq
+2014-01-28 12:14:10,366 [12616] DEBUG Sys - select count(*) from ( select sys_user.* from sys_user where  UserCode in (select UserCode from sys_userOrganizeMap where OrganizeCode in (select ID from [dbo].[GetChild]('sys_organize','0405'))) ) tb_temp
+2014-01-28 12:14:12,048 [11932] DEBUG Servicesys_user - 获取实体列表
+2014-01-28 12:14:12,048 [11932] DEBUG Sys - select top 20 sys_user.* from sys_user where  UserCode in (select UserCode from sys_userOrganizeMap where OrganizeCode in (select ID from [dbo].[GetChild]('sys_organize','040501'))) order by UserSeq
+2014-01-28 12:14:12,077 [11932] DEBUG Sys - select count(*) from ( select sys_user.* from sys_user where  UserCode in (select UserCode from sys_userOrganizeMap where OrganizeCode in (select ID from [dbo].[GetChild]('sys_organize','040501'))) ) tb_temp
+2014-01-28 12:14:13,962 [13216] DEBUG Servicesys_user - 获取实体列表
+2014-01-28 12:14:13,962 [13216] DEBUG Sys - select top 20 sys_user.* from sys_user where  UserCode in (select UserCode from sys_userOrganizeMap where OrganizeCode in (select ID from [dbo].[GetChild]('sys_organize','04050101'))) order by UserSeq
+2014-01-28 12:14:13,990 [13216] DEBUG Sys - select count(*) from ( select sys_user.* from sys_user where  UserCode in (select UserCode from sys_userOrganizeMap where OrganizeCode in (select ID from [dbo].[GetChild]('sys_organize','04050101'))) ) tb_temp
+2014-01-28 12:14:15,424 [11868] DEBUG Servicesys_user - 获取实体列表
+2014-01-28 12:14:15,424 [11868] DEBUG Sys - select top 20 sys_user.* from sys_user where  UserCode in (select UserCode from sys_userOrganizeMap where OrganizeCode in (select ID from [dbo].[GetChild]('sys_organize','040501'))) order by UserSeq
+2014-01-28 12:14:15,428 [11868] DEBUG Sys - select count(*) from ( select sys_user.* from sys_user where  UserCode in (select UserCode from sys_userOrganizeMap where OrganizeCode in (select ID from [dbo].[GetChild]('sys_organize','040501'))) ) tb_temp
+2014-01-28 12:14:17,660 [12776] DEBUG Servicesys_user - 获取实体列表
+2014-01-28 12:14:17,660 [12776] DEBUG Sys - select top 20 sys_user.* from sys_user where  UserCode in (select UserCode from sys_userOrganizeMap where OrganizeCode in (select ID from [dbo].[GetChild]('sys_organize','040502'))) order by UserSeq
+2014-01-28 12:14:17,690 [12776] DEBUG Sys - select count(*) from ( select sys_user.* from sys_user where  UserCode in (select UserCode from sys_userOrganizeMap where OrganizeCode in (select ID from [dbo].[GetChild]('sys_organize','040502'))) ) tb_temp
+2014-01-28 12:14:19,247 [11976] DEBUG Servicesys_user - 获取实体列表
+2014-01-28 12:14:19,247 [11976] DEBUG Sys - select top 20 sys_user.* from sys_user where  UserCode in (select UserCode from sys_userOrganizeMap where OrganizeCode in (select ID from [dbo].[GetChild]('sys_organize','040503'))) order by UserSeq
+2014-01-28 12:14:19,286 [11976] DEBUG Sys - select count(*) from ( select sys_user.* from sys_user where  UserCode in (select UserCode from sys_userOrganizeMap where OrganizeCode in (select ID from [dbo].[GetChild]('sys_organize','040503'))) ) tb_temp
+2014-01-28 12:14:20,662 [12664] DEBUG Servicesys_user - 获取实体列表
+2014-01-28 12:14:20,662 [12664] DEBUG Sys - select top 20 sys_user.* from sys_user where  UserCode in (select UserCode from sys_userOrganizeMap where OrganizeCode in (select ID from [dbo].[GetChild]('sys_organize','040504'))) order by UserSeq
+2014-01-28 12:14:20,683 [12664] DEBUG Sys - select count(*) from ( select sys_user.* from sys_user where  UserCode in (select UserCode from sys_userOrganizeMap where OrganizeCode in (select ID from [dbo].[GetChild]('sys_organize','040504'))) ) tb_temp
+2014-01-28 12:14:22,030 [12776] DEBUG Servicesys_user - 获取实体列表
+2014-01-28 12:14:22,030 [12776] DEBUG Sys - select top 20 sys_user.* from sys_user where  UserCode in (select UserCode from sys_userOrganizeMap where OrganizeCode in (select ID from [dbo].[GetChild]('sys_organize','040505'))) order by UserSeq
+2014-01-28 12:14:22,062 [12776] DEBUG Sys - select count(*) from ( select sys_user.* from sys_user where  UserCode in (select UserCode from sys_userOrganizeMap where OrganizeCode in (select ID from [dbo].[GetChild]('sys_organize','040505'))) ) tb_temp
+2014-01-28 12:14:24,787 [12664] DEBUG Servicesys_user - 获取实体列表
+2014-01-28 12:14:24,787 [12664] DEBUG Sys - select top 20 sys_user.* from sys_user where  UserCode in (select UserCode from sys_userOrganizeMap where OrganizeCode in (select ID from [dbo].[GetChild]('sys_organize','0401'))) order by UserSeq
+2014-01-28 12:14:24,797 [12664] DEBUG Sys - select count(*) from ( select sys_user.* from sys_user where  UserCode in (select UserCode from sys_userOrganizeMap where OrganizeCode in (select ID from [dbo].[GetChild]('sys_organize','0401'))) ) tb_temp
+2014-01-28 12:14:32,811 [1192] DEBUG Sys - 
+select distinct A.OrganizeCode,A.OrganizeName,A.ParentCode
+,(case when B.UserCode is null then 'false' else 'true' end) as Checked
+from sys_organize A
+left join sys_userOrganizeMap B on B.OrganizeCode = A.OrganizeCode and B.UserCode = 'fupeng22'
+2014-01-28 12:15:14,136 [1192] DEBUG Servicesys_user - 获取实体列表
+2014-01-28 12:15:14,136 [1192] DEBUG Sys - select top 20 sys_user.* from sys_user where  UserCode in (select UserCode from sys_userOrganizeMap where OrganizeCode in (select ID from [dbo].[GetChild]('sys_organize','040201'))) order by UserSeq
+2014-01-28 12:15:14,139 [1192] DEBUG Sys - select count(*) from ( select sys_user.* from sys_user where  UserCode in (select UserCode from sys_userOrganizeMap where OrganizeCode in (select ID from [dbo].[GetChild]('sys_organize','040201'))) ) tb_temp
+2014-01-28 12:15:15,702 [11932] DEBUG Sys - 
+select distinct A.OrganizeCode,A.OrganizeName,A.ParentCode
+,(case when B.UserCode is null then 'false' else 'true' end) as Checked
+from sys_organize A
+left join sys_userOrganizeMap B on B.OrganizeCode = A.OrganizeCode and B.UserCode = 'fupeng22'
+2014-01-28 12:16:12,284 [12776] DEBUG Sys - 
+select distinct A.RoleCode,A.RoleName
+,(case when B.RoleCode is null then 'false' else 'true' end) as Checked
+from sys_role A
+left join sys_userRoleMap B on B.RoleCode = A.RoleCode and B.UserCode = 'fupeng22'
+2014-01-28 12:16:19,425 [11932] DEBUG Servicesys_userSetting - 获取实体列表
+2014-01-28 12:16:19,425 [11932] DEBUG Sys - select sys_userSetting.* from sys_userSetting where  UserCode =  'fupeng22'
+2014-01-28 12:16:25,620 [12776] DEBUG Servicesys_user - 获取实体列表
+2014-01-28 12:16:25,620 [12776] DEBUG Sys - select top 20 sys_user.* from sys_user where  UserCode in (select UserCode from sys_userOrganizeMap where OrganizeCode in (select ID from [dbo].[GetChild]('sys_organize','04050101'))) order by UserSeq
+2014-01-28 12:16:25,624 [12776] DEBUG Sys - select count(*) from ( select sys_user.* from sys_user where  UserCode in (select UserCode from sys_userOrganizeMap where OrganizeCode in (select ID from [dbo].[GetChild]('sys_organize','04050101'))) ) tb_temp
+2014-01-28 12:16:27,154 [12328] DEBUG Servicesys_user - 获取实体列表
+2014-01-28 12:16:27,154 [12328] DEBUG Sys - select top 20 sys_user.* from sys_user where  UserCode in (select UserCode from sys_userOrganizeMap where OrganizeCode in (select ID from [dbo].[GetChild]('sys_organize','040501'))) order by UserSeq
+2014-01-28 12:16:27,159 [12328] DEBUG Sys - select count(*) from ( select sys_user.* from sys_user where  UserCode in (select UserCode from sys_userOrganizeMap where OrganizeCode in (select ID from [dbo].[GetChild]('sys_organize','040501'))) ) tb_temp
+2014-01-28 12:16:28,727 [1192] DEBUG Servicesys_userSetting - 获取实体列表
+2014-01-28 12:16:28,727 [1192] DEBUG Sys - select sys_userSetting.* from sys_userSetting where  UserCode =  'fupeng22'

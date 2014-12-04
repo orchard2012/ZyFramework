@@ -1,0 +1,860 @@
+2014-01-22 19:20:25,788 [48668] DEBUG Sys - select name from dbo.sysobjects where id = object_id(N'[dbo].[fun_getPY]') and xtype in (N'FN', N'IF', N'TF')
+2014-01-22 19:20:26,827 [48668] DEBUG Sys - select name from dbo.sysobjects where id = object_id(N'[dbo].[fun_getPY]') and xtype in (N'FN', N'IF', N'TF')
+2014-01-22 19:20:26,879 [48668] DEBUG Mms - select name from dbo.sysobjects where id = object_id(N'[dbo].[fun_getPY]') and xtype in (N'FN', N'IF', N'TF')
+2014-01-22 19:20:27,014 [48668] DEBUG Mms - select name from dbo.sysobjects where id = object_id(N'[dbo].[fun_getPY]') and xtype in (N'FN', N'IF', N'TF')
+2014-01-22 19:20:52,013 [48636] DEBUG Servicesys_user - 获取实体对象
+2014-01-22 19:20:52,023 [48636] DEBUG Sys - select sys_user.* from sys_user where  UserCode =  'admin'and Password =  'admin'and IsEnable =  'True'
+2014-01-22 19:20:52,370 [48636] DEBUG Sys - 
+update sys_user
+set LoginCount = isnull(LoginCount,0) + 1
+   ,LastLoginDate = getdate()
+where UserCode = 'admin' 
+2014-01-22 19:20:52,713 [48636] DEBUG Sys - insert into sys_loginHistory([UserCode],[UserName],[HostName],[HostIP],[LoginCity],[LoginDate]) values('admin','管理员','fwytech-PC','localhost','上海市','2014/1/22 19:20:52')
+2014-01-22 19:20:52,839 [48636] DEBUG Servicemms_project - 获取实体对象
+2014-01-22 19:20:52,839 [48636] DEBUG Mms - select mms_project.* from mms_project where  ProjectCode =  '201306030001'
+2014-01-22 19:20:53,170 [48668] DEBUG Sys - select * from sys_userSetting where UserCode='admin'
+2014-01-22 19:20:59,886 [48892] DEBUG Sys - 
+--角色的菜单
+select distinct B.*
+from sys_roleMenuMap A
+inner join sys_menu  B on B.MenuCode = A.MenuCode
+where B.IsEnable='1'
+  and RoleCode in (
+  select RoleCode from sys_userRoleMap where UserCode = 'admin' --用户的角色
+union all
+  select RoleCode from sys_organizeRoleMap where OrganizeCode in  --机构的角色
+  (
+	select OrganizeCode from sys_userOrganizeMap where UserCode = 'admin'
+  )  
+)
+order by B.MenuSeq,B.MenuCode
+2014-01-22 19:21:08,753 [47772] DEBUG Sys - 
+select 1
+from sys_roleMenuMap A
+left join sys_userRoleMap B on B.RoleCode = A.RoleCode
+left join sys_menu C on C.MenuCode = A.MenuCode
+where B.UserCode = 'admin'
+and C.URL in ('/Sys/code/Index','/Sys/code')
+2014-01-22 19:21:20,263 [48892] DEBUG Servicesys_codeType - 获取动态列表
+2014-01-22 19:21:20,264 [48892] DEBUG Sys - select sys_codeType.* from sys_codeType order by Seq,CodeType
+2014-01-22 19:21:20,470 [48680] DEBUG Servicesys_code - 获取实体列表
+2014-01-22 19:21:20,474 [48680] DEBUG Sys - select top 20 sys_code.* from sys_code order by Seq
+2014-01-22 19:21:20,486 [48680] DEBUG Sys - select count(*) from ( select sys_code.* from sys_code ) tb_temp
+2014-01-22 19:21:34,478 [48892] DEBUG Servicesys_code - 获取实体列表
+2014-01-22 19:21:34,478 [48892] DEBUG Sys - select top 20 sys_code.* from sys_code where  CodeType =  'ImagePart' order by Seq
+2014-01-22 19:21:34,482 [48892] DEBUG Sys - select count(*) from ( select sys_code.* from sys_code where  CodeType =  'ImagePart' ) tb_temp
+2014-01-22 19:21:35,964 [45556] DEBUG Servicesys_code - 获取实体列表
+2014-01-22 19:21:35,964 [45556] DEBUG Sys - select top 20 sys_code.* from sys_code where  CodeType =  'StockState' order by Seq
+2014-01-22 19:21:35,967 [45556] DEBUG Sys - select count(*) from ( select sys_code.* from sys_code where  CodeType =  'StockState' ) tb_temp
+2014-01-22 19:21:40,566 [47772] DEBUG Servicesys_code - 获取实体列表
+2014-01-22 19:21:40,567 [47772] DEBUG Sys - select top 20 sys_code.* from sys_code order by Seq
+2014-01-22 19:21:40,570 [47772] DEBUG Sys - select count(*) from ( select sys_code.* from sys_code ) tb_temp
+2014-01-22 19:21:41,982 [45524] DEBUG Servicesys_code - 获取实体列表
+2014-01-22 19:21:41,982 [45524] DEBUG Sys - select top 20 sys_code.* from sys_code where  CodeType =  'ImagePart' order by Seq
+2014-01-22 19:21:41,983 [45524] DEBUG Sys - select count(*) from ( select sys_code.* from sys_code where  CodeType =  'ImagePart' ) tb_temp
+2014-01-22 19:22:32,302 [48180] DEBUG Servicesys_user - 获取实体对象
+2014-01-22 19:22:32,303 [48180] DEBUG Sys - select sys_user.* from sys_user where  UserCode =  'admin'and Password =  'admin'and IsEnable =  'True'
+2014-01-22 19:22:32,304 [48180] DEBUG Sys - 
+update sys_user
+set LoginCount = isnull(LoginCount,0) + 1
+   ,LastLoginDate = getdate()
+where UserCode = 'admin' 
+2014-01-22 19:22:32,309 [48180] DEBUG Sys - insert into sys_loginHistory([UserCode],[UserName],[HostName],[HostIP],[LoginCity],[LoginDate]) values('admin','管理员','fwytech-PC','localhost','上海市','2014/1/22 19:22:32')
+2014-01-22 19:22:32,310 [48180] DEBUG Servicemms_project - 获取实体对象
+2014-01-22 19:22:32,310 [48180] DEBUG Mms - select mms_project.* from mms_project where  ProjectCode =  '201306030001'
+2014-01-22 19:22:32,424 [48668] DEBUG Sys - select * from sys_userSetting where UserCode='admin'
+2014-01-22 19:22:33,835 [48668] DEBUG Sys - 
+--角色的菜单
+select distinct B.*
+from sys_roleMenuMap A
+inner join sys_menu  B on B.MenuCode = A.MenuCode
+where B.IsEnable='1'
+  and RoleCode in (
+  select RoleCode from sys_userRoleMap where UserCode = 'admin' --用户的角色
+union all
+  select RoleCode from sys_organizeRoleMap where OrganizeCode in  --机构的角色
+  (
+	select OrganizeCode from sys_userOrganizeMap where UserCode = 'admin'
+  )  
+)
+order by B.MenuSeq,B.MenuCode
+2014-01-22 19:22:52,286 [49044] DEBUG Sys - 
+select 1
+from sys_roleMenuMap A
+left join sys_userRoleMap B on B.RoleCode = A.RoleCode
+left join sys_menu C on C.MenuCode = A.MenuCode
+where B.UserCode = 'admin'
+and C.URL in ('/Sys/code/Index','/Sys/code')
+2014-01-22 19:22:53,701 [48636] DEBUG Servicesys_codeType - 获取动态列表
+2014-01-22 19:22:53,701 [48636] DEBUG Sys - select sys_codeType.* from sys_codeType order by Seq,CodeType
+2014-01-22 19:22:54,273 [48892] DEBUG Servicesys_code - 获取实体列表
+2014-01-22 19:22:54,274 [48892] DEBUG Sys - select top 20 sys_code.* from sys_code order by Seq
+2014-01-22 19:22:54,276 [48892] DEBUG Sys - select count(*) from ( select sys_code.* from sys_code ) tb_temp
+2014-01-22 19:24:23,520 [48680] DEBUG Sys - 
+select 1
+from sys_roleMenuMap A
+left join sys_userRoleMap B on B.RoleCode = A.RoleCode
+left join sys_menu C on C.MenuCode = A.MenuCode
+where B.UserCode = 'admin'
+and C.URL in ('/Sys/user/Index','/Sys/user')
+2014-01-22 19:24:27,856 [47512] DEBUG Servicesys_organize - 获取实体列表
+2014-01-22 19:24:27,857 [47512] DEBUG Sys - select sys_organize.* from sys_organize
+2014-01-22 19:24:27,898 [45556] DEBUG Servicesys_user - 获取实体列表
+2014-01-22 19:24:27,899 [45556] DEBUG Sys - select top 20 sys_user.* from sys_user order by UserSeq
+2014-01-22 19:24:27,932 [45556] DEBUG Sys - select count(*) from ( select sys_user.* from sys_user ) tb_temp
+2014-01-22 19:24:51,105 [48636] DEBUG Sys - 
+select 1
+from sys_roleMenuMap A
+left join sys_userRoleMap B on B.RoleCode = A.RoleCode
+left join sys_menu C on C.MenuCode = A.MenuCode
+where B.UserCode = 'admin'
+and C.URL in ('/Sys/code/Index','/Sys/code')
+2014-01-22 19:24:52,285 [48668] DEBUG Servicesys_codeType - 获取动态列表
+2014-01-22 19:24:52,285 [48668] DEBUG Sys - select sys_codeType.* from sys_codeType order by Seq,CodeType
+2014-01-22 19:24:52,706 [48892] DEBUG Servicesys_code - 获取实体列表
+2014-01-22 19:24:52,706 [48892] DEBUG Sys - select top 20 sys_code.* from sys_code order by Seq
+2014-01-22 19:24:52,709 [48892] DEBUG Sys - select count(*) from ( select sys_code.* from sys_code ) tb_temp
+2014-01-22 20:21:34,476 [53000] DEBUG Servicesys_codeType - 获取动态列表
+2014-01-22 20:21:35,048 [53000] DEBUG Sys - select top 10 sys_codeType.* from sys_codeType order by Seq,CodeType
+2014-01-22 20:21:35,289 [53000] DEBUG Sys - select count(*) from ( select sys_codeType.* from sys_codeType ) tb_temp
+2014-01-22 20:21:51,777 [54164] DEBUG Servicesys_code - 获取实体列表
+2014-01-22 20:21:51,777 [54164] DEBUG Sys - select top 20 sys_code.* from sys_code where  CodeType =  'StockState' order by Seq
+2014-01-22 20:21:51,960 [54164] DEBUG Sys - select count(*) from ( select sys_code.* from sys_code where  CodeType =  'StockState' ) tb_temp
+2014-01-22 20:21:54,122 [50772] DEBUG Servicesys_code - 获取新主键
+2014-01-22 20:21:54,444 [50772] DEBUG Sys - select isnull(max(Code),0) from sys_code  where 1 = 1 
+2014-01-22 20:29:18,093 [52972] DEBUG Servicesys_user - 获取实体对象
+2014-01-22 20:29:18,101 [52972] DEBUG Sys - select sys_user.* from sys_user where  UserCode =  'admin'and Password =  'admin'and IsEnable =  'True'
+2014-01-22 20:29:18,319 [52972] DEBUG Sys - 
+update sys_user
+set LoginCount = isnull(LoginCount,0) + 1
+   ,LastLoginDate = getdate()
+where UserCode = 'admin' 
+2014-01-22 20:29:19,120 [52972] DEBUG Sys - insert into sys_loginHistory([UserCode],[UserName],[HostName],[HostIP],[LoginCity],[LoginDate]) values('admin','管理员','fwytech-PC','localhost','上海市','2014/1/22 20:29:19')
+2014-01-22 20:29:19,350 [52972] DEBUG Servicemms_project - 获取实体对象
+2014-01-22 20:29:19,369 [52972] DEBUG Mms - select mms_project.* from mms_project where  ProjectCode =  '201306030001'
+2014-01-22 20:29:19,817 [54012] DEBUG Sys - select * from sys_userSetting where UserCode='admin'
+2014-01-22 20:29:21,438 [49364] DEBUG Sys - 
+--角色的菜单
+select distinct B.*
+from sys_roleMenuMap A
+inner join sys_menu  B on B.MenuCode = A.MenuCode
+where B.IsEnable='1'
+  and RoleCode in (
+  select RoleCode from sys_userRoleMap where UserCode = 'admin' --用户的角色
+union all
+  select RoleCode from sys_organizeRoleMap where OrganizeCode in  --机构的角色
+  (
+	select OrganizeCode from sys_userOrganizeMap where UserCode = 'admin'
+  )  
+)
+order by B.MenuSeq,B.MenuCode
+2014-01-22 20:29:30,614 [49364] DEBUG Sys - 
+select 1
+from sys_roleMenuMap A
+left join sys_userRoleMap B on B.RoleCode = A.RoleCode
+left join sys_menu C on C.MenuCode = A.MenuCode
+where B.UserCode = 'admin'
+and C.URL in ('/Sys/code/Index','/Sys/code')
+2014-01-22 20:29:53,201 [54012] DEBUG Servicesys_codeType - 获取动态列表
+2014-01-22 20:29:53,201 [54012] DEBUG Sys - select sys_codeType.* from sys_codeType order by Seq,CodeType
+2014-01-22 20:29:53,413 [54012] DEBUG Servicesys_code - 获取实体列表
+2014-01-22 20:29:53,413 [54012] DEBUG Sys - select top 20 sys_code.* from sys_code order by Seq
+2014-01-22 20:29:53,458 [54012] DEBUG Sys - select count(*) from ( select sys_code.* from sys_code ) tb_temp
+2014-01-22 20:32:14,216 [53220] DEBUG Servicesys_codeType - 获取动态列表
+2014-01-22 20:32:14,217 [53220] DEBUG Sys - select top 10 sys_codeType.* from sys_codeType order by Seq,CodeType
+2014-01-22 20:32:14,220 [53220] DEBUG Sys - select count(*) from ( select sys_codeType.* from sys_codeType ) tb_temp
+2014-01-22 20:32:21,774 [54980] DEBUG Servicesys_code - 获取实体列表
+2014-01-22 20:32:21,774 [54980] DEBUG Sys - select top 20 sys_code.* from sys_code where  CodeType =  'StockState' order by Seq
+2014-01-22 20:32:21,779 [54980] DEBUG Sys - select count(*) from ( select sys_code.* from sys_code where  CodeType =  'StockState' ) tb_temp
+2014-01-22 20:32:23,162 [54868] DEBUG Servicesys_codeType - 获取动态列表
+2014-01-22 20:32:23,162 [54868] DEBUG Sys - select top 10 sys_codeType.* from sys_codeType order by Seq,CodeType
+2014-01-22 20:32:23,164 [54868] DEBUG Sys - select count(*) from ( select sys_codeType.* from sys_codeType ) tb_temp
+2014-01-22 20:32:36,487 [54980] DEBUG Servicesys_codeType - 获取动态列表
+2014-01-22 20:32:36,488 [54980] DEBUG Sys - select top 10 sys_codeType.* from sys_codeType order by Seq,CodeType
+2014-01-22 20:32:36,489 [54980] DEBUG Sys - select count(*) from ( select sys_codeType.* from sys_codeType ) tb_temp
+2014-01-22 20:50:33,034 [57056] DEBUG Sys - select name from dbo.sysobjects where id = object_id(N'[dbo].[fun_getPY]') and xtype in (N'FN', N'IF', N'TF')
+2014-01-22 20:50:33,151 [57056] DEBUG Sys - select name from dbo.sysobjects where id = object_id(N'[dbo].[fun_getPY]') and xtype in (N'FN', N'IF', N'TF')
+2014-01-22 20:50:33,155 [57056] DEBUG Mms - select name from dbo.sysobjects where id = object_id(N'[dbo].[fun_getPY]') and xtype in (N'FN', N'IF', N'TF')
+2014-01-22 20:50:33,295 [57056] DEBUG Mms - select name from dbo.sysobjects where id = object_id(N'[dbo].[fun_getPY]') and xtype in (N'FN', N'IF', N'TF')
+2014-01-22 20:52:05,216 [54936] DEBUG Sys - select name from dbo.sysobjects where id = object_id(N'[dbo].[fun_getPY]') and xtype in (N'FN', N'IF', N'TF')
+2014-01-22 20:52:05,243 [54936] DEBUG Sys - select name from dbo.sysobjects where id = object_id(N'[dbo].[fun_getPY]') and xtype in (N'FN', N'IF', N'TF')
+2014-01-22 20:52:05,247 [54936] DEBUG Mms - select name from dbo.sysobjects where id = object_id(N'[dbo].[fun_getPY]') and xtype in (N'FN', N'IF', N'TF')
+2014-01-22 20:52:05,256 [54936] DEBUG Mms - select name from dbo.sysobjects where id = object_id(N'[dbo].[fun_getPY]') and xtype in (N'FN', N'IF', N'TF')
+2014-01-22 20:52:23,831 [54824] DEBUG Servicesys_user - 获取实体对象
+2014-01-22 20:52:23,843 [54824] DEBUG Sys - select sys_user.* from sys_user where  UserCode =  'admin'and Password =  'admin'and IsEnable =  'True'
+2014-01-22 20:52:23,991 [54824] DEBUG Sys - 
+update sys_user
+set LoginCount = isnull(LoginCount,0) + 1
+   ,LastLoginDate = getdate()
+where UserCode = 'admin' 
+2014-01-22 20:52:24,296 [54824] DEBUG Sys - insert into sys_loginHistory([UserCode],[UserName],[HostName],[HostIP],[LoginCity],[LoginDate]) values('admin','管理员','fwytech-PC','localhost','上海市','2014/1/22 20:52:24')
+2014-01-22 20:52:24,307 [54824] DEBUG Servicemms_project - 获取实体对象
+2014-01-22 20:52:24,308 [54824] DEBUG Mms - select mms_project.* from mms_project where  ProjectCode =  '201306030001'
+2014-01-22 20:52:24,878 [57164] DEBUG Sys - select * from sys_userSetting where UserCode='admin'
+2014-01-22 20:52:31,023 [49036] DEBUG Sys - 
+--角色的菜单
+select distinct B.*
+from sys_roleMenuMap A
+inner join sys_menu  B on B.MenuCode = A.MenuCode
+where B.IsEnable='1'
+  and RoleCode in (
+  select RoleCode from sys_userRoleMap where UserCode = 'admin' --用户的角色
+union all
+  select RoleCode from sys_organizeRoleMap where OrganizeCode in  --机构的角色
+  (
+	select OrganizeCode from sys_userOrganizeMap where UserCode = 'admin'
+  )  
+)
+order by B.MenuSeq,B.MenuCode
+2014-01-22 20:52:38,668 [54936] DEBUG Sys - 
+select 1
+from sys_roleMenuMap A
+left join sys_userRoleMap B on B.RoleCode = A.RoleCode
+left join sys_menu C on C.MenuCode = A.MenuCode
+where B.UserCode = 'admin'
+and C.URL in ('/Sys/code/Index','/Sys/code')
+2014-01-22 20:52:49,412 [54936] DEBUG Servicesys_codeType - 获取动态列表
+2014-01-22 20:52:49,413 [54936] DEBUG Sys - select sys_codeType.* from sys_codeType order by Seq,CodeType
+2014-01-22 20:54:28,545 [54824] DEBUG Servicesys_code - 获取实体列表
+2014-01-22 20:54:28,549 [54824] DEBUG Sys - select top 20 sys_code.* from sys_code order by Seq
+2014-01-22 20:54:28,653 [54824] DEBUG Sys - select count(*) from ( select sys_code.* from sys_code ) tb_temp
+2014-01-22 20:59:21,751 [56660] DEBUG Sys - select name from dbo.sysobjects where id = object_id(N'[dbo].[fun_getPY]') and xtype in (N'FN', N'IF', N'TF')
+2014-01-22 20:59:21,770 [56660] DEBUG Sys - select name from dbo.sysobjects where id = object_id(N'[dbo].[fun_getPY]') and xtype in (N'FN', N'IF', N'TF')
+2014-01-22 20:59:21,773 [56660] DEBUG Mms - select name from dbo.sysobjects where id = object_id(N'[dbo].[fun_getPY]') and xtype in (N'FN', N'IF', N'TF')
+2014-01-22 20:59:21,778 [56660] DEBUG Mms - select name from dbo.sysobjects where id = object_id(N'[dbo].[fun_getPY]') and xtype in (N'FN', N'IF', N'TF')
+2014-01-22 20:59:32,156 [55868] DEBUG Servicesys_user - 获取实体对象
+2014-01-22 20:59:32,166 [55868] DEBUG Sys - select sys_user.* from sys_user where  UserCode =  'admin'and Password =  'admin'and IsEnable =  'True'
+2014-01-22 20:59:32,222 [55868] DEBUG Sys - 
+update sys_user
+set LoginCount = isnull(LoginCount,0) + 1
+   ,LastLoginDate = getdate()
+where UserCode = 'admin' 
+2014-01-22 20:59:32,314 [55868] DEBUG Sys - insert into sys_loginHistory([UserCode],[UserName],[HostName],[HostIP],[LoginCity],[LoginDate]) values('admin','管理员','fwytech-PC','localhost','上海市','2014/1/22 20:59:32')
+2014-01-22 20:59:32,318 [55868] DEBUG Servicemms_project - 获取实体对象
+2014-01-22 20:59:32,318 [55868] DEBUG Mms - select mms_project.* from mms_project where  ProjectCode =  '201306030001'
+2014-01-22 20:59:32,721 [48608] DEBUG Sys - select * from sys_userSetting where UserCode='admin'
+2014-01-22 20:59:36,493 [56660] DEBUG Sys - 
+--角色的菜单
+select distinct B.*
+from sys_roleMenuMap A
+inner join sys_menu  B on B.MenuCode = A.MenuCode
+where B.IsEnable='1'
+  and RoleCode in (
+  select RoleCode from sys_userRoleMap where UserCode = 'admin' --用户的角色
+union all
+  select RoleCode from sys_organizeRoleMap where OrganizeCode in  --机构的角色
+  (
+	select OrganizeCode from sys_userOrganizeMap where UserCode = 'admin'
+  )  
+)
+order by B.MenuSeq,B.MenuCode
+2014-01-22 20:59:44,929 [45524] DEBUG Sys - 
+select 1
+from sys_roleMenuMap A
+left join sys_userRoleMap B on B.RoleCode = A.RoleCode
+left join sys_menu C on C.MenuCode = A.MenuCode
+where B.UserCode = 'admin'
+and C.URL in ('/Sys/code/Index','/Sys/code')
+2014-01-22 20:59:48,949 [55868] DEBUG Servicesys_codeType - 获取动态列表
+2014-01-22 20:59:48,950 [55868] DEBUG Sys - select sys_codeType.* from sys_codeType order by Seq,CodeType
+2014-01-22 20:59:48,951 [45524] DEBUG Servicesys_code - 获取实体列表
+2014-01-22 20:59:48,955 [45524] DEBUG Sys - select top 20 sys_code.* from sys_code order by Seq
+2014-01-22 20:59:49,075 [45524] DEBUG Sys - select count(*) from ( select sys_code.* from sys_code ) tb_temp
+2014-01-22 21:19:53,006 [55868] DEBUG Sys - select name from dbo.sysobjects where id = object_id(N'[dbo].[fun_getPY]') and xtype in (N'FN', N'IF', N'TF')
+2014-01-22 21:19:53,030 [55868] DEBUG Sys - select name from dbo.sysobjects where id = object_id(N'[dbo].[fun_getPY]') and xtype in (N'FN', N'IF', N'TF')
+2014-01-22 21:19:53,033 [55868] DEBUG Mms - select name from dbo.sysobjects where id = object_id(N'[dbo].[fun_getPY]') and xtype in (N'FN', N'IF', N'TF')
+2014-01-22 21:19:53,037 [55868] DEBUG Mms - select name from dbo.sysobjects where id = object_id(N'[dbo].[fun_getPY]') and xtype in (N'FN', N'IF', N'TF')
+2014-01-22 21:40:26,848 [59100] DEBUG Servicesys_user - 获取实体对象
+2014-01-22 21:40:26,876 [59100] DEBUG Sys - select sys_user.* from sys_user where  UserCode =  'admin'and Password =  'admin'and IsEnable =  'True'
+2014-01-22 21:40:26,943 [59100] DEBUG Sys - 
+update sys_user
+set LoginCount = isnull(LoginCount,0) + 1
+   ,LastLoginDate = getdate()
+where UserCode = 'admin' 
+2014-01-22 21:40:27,132 [59100] DEBUG Sys - insert into sys_loginHistory([UserCode],[UserName],[HostName],[HostIP],[LoginCity],[LoginDate]) values('admin','管理员','fwytech-PC','localhost','上海市','2014/1/22 21:40:27')
+2014-01-22 21:40:27,137 [59100] DEBUG Servicemms_project - 获取实体对象
+2014-01-22 21:40:27,140 [59100] DEBUG Mms - select mms_project.* from mms_project where  ProjectCode =  '201306030001'
+2014-01-22 21:40:27,635 [55712] DEBUG Sys - select * from sys_userSetting where UserCode='admin'
+2014-01-22 21:40:31,764 [55712] DEBUG Sys - 
+--角色的菜单
+select distinct B.*
+from sys_roleMenuMap A
+inner join sys_menu  B on B.MenuCode = A.MenuCode
+where B.IsEnable='1'
+  and RoleCode in (
+  select RoleCode from sys_userRoleMap where UserCode = 'admin' --用户的角色
+union all
+  select RoleCode from sys_organizeRoleMap where OrganizeCode in  --机构的角色
+  (
+	select OrganizeCode from sys_userOrganizeMap where UserCode = 'admin'
+  )  
+)
+order by B.MenuSeq,B.MenuCode
+2014-01-22 21:43:26,720 [59112] DEBUG Sys - select name from dbo.sysobjects where id = object_id(N'[dbo].[fun_getPY]') and xtype in (N'FN', N'IF', N'TF')
+2014-01-22 21:43:26,743 [59112] DEBUG Sys - select name from dbo.sysobjects where id = object_id(N'[dbo].[fun_getPY]') and xtype in (N'FN', N'IF', N'TF')
+2014-01-22 21:43:26,746 [59112] DEBUG Mms - select name from dbo.sysobjects where id = object_id(N'[dbo].[fun_getPY]') and xtype in (N'FN', N'IF', N'TF')
+2014-01-22 21:43:26,752 [59112] DEBUG Mms - select name from dbo.sysobjects where id = object_id(N'[dbo].[fun_getPY]') and xtype in (N'FN', N'IF', N'TF')
+2014-01-22 21:43:37,761 [59748] DEBUG Servicesys_user - 获取实体对象
+2014-01-22 21:43:37,774 [59748] DEBUG Sys - select sys_user.* from sys_user where  UserCode =  'admin'and Password =  'admin'and IsEnable =  'True'
+2014-01-22 21:43:37,854 [59748] DEBUG Sys - 
+update sys_user
+set LoginCount = isnull(LoginCount,0) + 1
+   ,LastLoginDate = getdate()
+where UserCode = 'admin' 
+2014-01-22 21:43:37,958 [59748] DEBUG Sys - insert into sys_loginHistory([UserCode],[UserName],[HostName],[HostIP],[LoginCity],[LoginDate]) values('admin','管理员','fwytech-PC','localhost','上海市','2014/1/22 21:43:37')
+2014-01-22 21:43:37,971 [59748] DEBUG Servicemms_project - 获取实体对象
+2014-01-22 21:43:37,972 [59748] DEBUG Mms - select mms_project.* from mms_project where  ProjectCode =  '201306030001'
+2014-01-22 21:43:38,330 [59836] DEBUG Sys - select * from sys_userSetting where UserCode='admin'
+2014-01-22 21:43:42,098 [59836] DEBUG Sys - 
+--角色的菜单
+select distinct B.*
+from sys_roleMenuMap A
+inner join sys_menu  B on B.MenuCode = A.MenuCode
+where B.IsEnable='1'
+  and RoleCode in (
+  select RoleCode from sys_userRoleMap where UserCode = 'admin' --用户的角色
+union all
+  select RoleCode from sys_organizeRoleMap where OrganizeCode in  --机构的角色
+  (
+	select OrganizeCode from sys_userOrganizeMap where UserCode = 'admin'
+  )  
+)
+order by B.MenuSeq,B.MenuCode
+2014-01-22 21:43:56,236 [54344] DEBUG Sys - 
+select 1
+from sys_roleMenuMap A
+left join sys_userRoleMap B on B.RoleCode = A.RoleCode
+left join sys_menu C on C.MenuCode = A.MenuCode
+where B.UserCode = 'admin'
+and C.URL in ('/Sys/code/Index','/Sys/code')
+2014-01-22 21:43:59,787 [60216] DEBUG Servicesys_codeType - 获取动态列表
+2014-01-22 21:43:59,788 [54612] DEBUG Servicesys_code - 获取实体列表
+2014-01-22 21:43:59,788 [60216] DEBUG Sys - select sys_codeType.* from sys_codeType order by Seq,CodeType
+2014-01-22 21:43:59,791 [54612] DEBUG Sys - select top 20 sys_code.* from sys_code order by Seq
+2014-01-22 21:43:59,940 [54612] DEBUG Sys - select count(*) from ( select sys_code.* from sys_code ) tb_temp
+2014-01-22 21:46:49,856 [54612] DEBUG Sys - 
+select 1
+from sys_roleMenuMap A
+left join sys_userRoleMap B on B.RoleCode = A.RoleCode
+left join sys_menu C on C.MenuCode = A.MenuCode
+where B.UserCode = 'admin'
+and C.URL in ('/Sys/code/Index','/Sys/code')
+2014-01-22 21:46:50,883 [52780] DEBUG Servicesys_code - 获取实体列表
+2014-01-22 21:46:50,884 [52780] DEBUG Sys - select top 20 sys_code.* from sys_code order by Seq
+2014-01-22 21:46:50,888 [52780] DEBUG Sys - select count(*) from ( select sys_code.* from sys_code ) tb_temp
+2014-01-22 21:46:52,951 [54612] DEBUG Servicesys_codeType - 获取动态列表
+2014-01-22 21:46:52,951 [54612] DEBUG Sys - select sys_codeType.* from sys_codeType order by Seq,CodeType
+2014-01-22 21:51:50,438 [60344] DEBUG Sys - select name from dbo.sysobjects where id = object_id(N'[dbo].[fun_getPY]') and xtype in (N'FN', N'IF', N'TF')
+2014-01-22 21:51:50,464 [60344] DEBUG Sys - select name from dbo.sysobjects where id = object_id(N'[dbo].[fun_getPY]') and xtype in (N'FN', N'IF', N'TF')
+2014-01-22 21:51:50,467 [60344] DEBUG Mms - select name from dbo.sysobjects where id = object_id(N'[dbo].[fun_getPY]') and xtype in (N'FN', N'IF', N'TF')
+2014-01-22 21:51:50,472 [60344] DEBUG Mms - select name from dbo.sysobjects where id = object_id(N'[dbo].[fun_getPY]') and xtype in (N'FN', N'IF', N'TF')
+2014-01-22 21:52:22,610 [56236] DEBUG Servicesys_user - 获取实体对象
+2014-01-22 21:52:22,621 [56236] DEBUG Sys - select sys_user.* from sys_user where  UserCode =  'admin'and Password =  'admin'and IsEnable =  'True'
+2014-01-22 21:52:22,720 [56236] DEBUG Sys - 
+update sys_user
+set LoginCount = isnull(LoginCount,0) + 1
+   ,LastLoginDate = getdate()
+where UserCode = 'admin' 
+2014-01-22 21:52:22,859 [56236] DEBUG Sys - insert into sys_loginHistory([UserCode],[UserName],[HostName],[HostIP],[LoginCity],[LoginDate]) values('admin','管理员','fwytech-PC','localhost','上海市','2014/1/22 21:52:22')
+2014-01-22 21:52:22,863 [56236] DEBUG Servicemms_project - 获取实体对象
+2014-01-22 21:52:22,863 [56236] DEBUG Mms - select mms_project.* from mms_project where  ProjectCode =  '201306030001'
+2014-01-22 21:52:23,165 [60344] DEBUG Sys - select * from sys_userSetting where UserCode='admin'
+2014-01-22 21:52:31,011 [54448] DEBUG Sys - 
+--角色的菜单
+select distinct B.*
+from sys_roleMenuMap A
+inner join sys_menu  B on B.MenuCode = A.MenuCode
+where B.IsEnable='1'
+  and RoleCode in (
+  select RoleCode from sys_userRoleMap where UserCode = 'admin' --用户的角色
+union all
+  select RoleCode from sys_organizeRoleMap where OrganizeCode in  --机构的角色
+  (
+	select OrganizeCode from sys_userOrganizeMap where UserCode = 'admin'
+  )  
+)
+order by B.MenuSeq,B.MenuCode
+2014-01-22 21:52:45,231 [60300] DEBUG Sys - 
+select 1
+from sys_roleMenuMap A
+left join sys_userRoleMap B on B.RoleCode = A.RoleCode
+left join sys_menu C on C.MenuCode = A.MenuCode
+where B.UserCode = 'admin'
+and C.URL in ('/Sys/code/Index','/Sys/code')
+2014-01-22 21:52:49,069 [60344] DEBUG Servicesys_codeType - 获取动态列表
+2014-01-22 21:52:49,070 [60344] DEBUG Sys - select sys_codeType.* from sys_codeType order by Seq,CodeType
+2014-01-22 21:52:49,187 [54448] DEBUG Servicesys_code - 获取实体列表
+2014-01-22 21:52:49,192 [54448] DEBUG Sys - select top 20 sys_code.* from sys_code order by Seq
+2014-01-22 21:52:50,313 [54448] DEBUG Sys - select count(*) from ( select sys_code.* from sys_code ) tb_temp
+2014-01-22 21:58:26,268 [62908] DEBUG Servicesys_code - 编辑记录
+2014-01-22 21:58:26,290 [62908] DEBUG Servicesys_code - 获取动态对象
+2014-01-22 21:58:26,326 [62908] DEBUG Sys - select sys_code.* from sys_code where  Code =  '108'
+2014-01-22 21:58:26,395 [62908] DEBUG Sys - update sys_code set [CodeType] = 'PersonType', [Value] = 'PersonType', [Text] = '人员类型', [ParentCode] = '0', [Description] = '人员类型的描述说明', [IsEnable] = 'true', [IsDefault] = 'true', [Seq] = '1', [UpdatePerson] = '管理员', [UpdateDate] = '2014/1/22 21:58:26' where  Code =  '108'
+2014-01-22 21:58:29,215 [62908] DEBUG Sys - 
+select 1
+from sys_roleMenuMap A
+left join sys_userRoleMap B on B.RoleCode = A.RoleCode
+left join sys_menu C on C.MenuCode = A.MenuCode
+where B.UserCode = 'admin'
+and C.URL in ('/Sys/code/Index','/Sys/code')
+2014-01-22 21:58:31,752 [61732] DEBUG Servicesys_codeType - 获取动态列表
+2014-01-22 21:58:31,752 [61732] DEBUG Sys - select sys_codeType.* from sys_codeType order by Seq,CodeType
+2014-01-22 21:58:34,894 [61732] DEBUG Servicesys_code - 获取实体列表
+2014-01-22 21:58:34,896 [61732] DEBUG Sys - select top 20 sys_code.* from sys_code order by Seq
+2014-01-22 21:58:34,899 [61732] DEBUG Sys - select count(*) from ( select sys_code.* from sys_code ) tb_temp
+2014-01-22 21:58:57,310 [62616] DEBUG Servicesys_code - 获取实体列表
+2014-01-22 21:58:57,310 [62616] DEBUG Sys - with PagedPersons as
+								(
+									select top 100 percent sys_code.*, row_number() over (order by Seq) as FLUENTDATA_ROWNUMBER
+									 from sys_code
+								)
+								select *
+								from PagedPersons
+								where fluentdata_RowNumber between 101 and 120
+2014-01-22 21:58:57,367 [62616] DEBUG Sys - select count(*) from ( select sys_code.* from sys_code ) tb_temp
+2014-01-22 21:58:59,871 [62616] DEBUG Servicesys_code - 获取实体列表
+2014-01-22 21:58:59,871 [62616] DEBUG Sys - select top 20 sys_code.* from sys_code order by Seq
+2014-01-22 21:58:59,872 [62616] DEBUG Sys - select count(*) from ( select sys_code.* from sys_code ) tb_temp
+2014-01-22 21:59:58,870 [62624] DEBUG Servicesys_code - 获取实体列表
+2014-01-22 21:59:58,870 [62624] DEBUG Sys - with PagedPersons as
+								(
+									select top 100 percent sys_code.*, row_number() over (order by Seq) as FLUENTDATA_ROWNUMBER
+									 from sys_code
+								)
+								select *
+								from PagedPersons
+								where fluentdata_RowNumber between 101 and 120
+2014-01-22 21:59:58,889 [62624] DEBUG Sys - select count(*) from ( select sys_code.* from sys_code ) tb_temp
+2014-01-22 22:00:02,532 [62624] DEBUG Servicesys_code - 获取实体列表
+2014-01-22 22:00:02,532 [62624] DEBUG Sys - with PagedPersons as
+								(
+									select top 100 percent sys_code.*, row_number() over (order by Seq) as FLUENTDATA_ROWNUMBER
+									 from sys_code
+								)
+								select *
+								from PagedPersons
+								where fluentdata_RowNumber between 81 and 100
+2014-01-22 22:00:02,594 [62624] DEBUG Sys - select count(*) from ( select sys_code.* from sys_code ) tb_temp
+2014-01-22 22:00:10,149 [62624] DEBUG Servicesys_code - 获取实体列表
+2014-01-22 22:00:10,149 [62624] DEBUG Sys - with PagedPersons as
+								(
+									select top 100 percent sys_code.*, row_number() over (order by Seq) as FLUENTDATA_ROWNUMBER
+									 from sys_code where  CodeType =  'PersonType'
+								)
+								select *
+								from PagedPersons
+								where fluentdata_RowNumber between 81 and 100
+2014-01-22 22:00:10,160 [62624] DEBUG Sys - select count(*) from ( select sys_code.* from sys_code where  CodeType =  'PersonType' ) tb_temp
+2014-01-22 22:00:14,874 [62136] DEBUG Servicesys_code - 获取实体列表
+2014-01-22 22:00:14,874 [62136] DEBUG Sys - with PagedPersons as
+								(
+									select top 100 percent sys_code.*, row_number() over (order by Seq) as FLUENTDATA_ROWNUMBER
+									 from sys_code
+								)
+								select *
+								from PagedPersons
+								where fluentdata_RowNumber between 81 and 100
+2014-01-22 22:00:14,876 [62136] DEBUG Sys - select count(*) from ( select sys_code.* from sys_code ) tb_temp
+2014-01-22 22:00:21,712 [63304] DEBUG Servicesys_code - 获取实体列表
+2014-01-22 22:00:21,713 [63304] DEBUG Sys - with PagedPersons as
+								(
+									select top 100 percent sys_code.*, row_number() over (order by Seq) as FLUENTDATA_ROWNUMBER
+									 from sys_code
+								)
+								select *
+								from PagedPersons
+								where fluentdata_RowNumber between 101 and 120
+2014-01-22 22:00:21,717 [63304] DEBUG Sys - select count(*) from ( select sys_code.* from sys_code ) tb_temp
+2014-01-22 22:00:25,294 [51516] DEBUG Servicesys_code - 获取实体列表
+2014-01-22 22:00:25,294 [51516] DEBUG Sys - with PagedPersons as
+								(
+									select top 100 percent sys_code.*, row_number() over (order by Seq) as FLUENTDATA_ROWNUMBER
+									 from sys_code
+								)
+								select *
+								from PagedPersons
+								where fluentdata_RowNumber between 81 and 100
+2014-01-22 22:00:25,299 [51516] DEBUG Sys - select count(*) from ( select sys_code.* from sys_code ) tb_temp
+2014-01-22 22:00:27,166 [63308] DEBUG Servicesys_code - 获取实体列表
+2014-01-22 22:00:27,167 [63308] DEBUG Sys - with PagedPersons as
+								(
+									select top 100 percent sys_code.*, row_number() over (order by Seq) as FLUENTDATA_ROWNUMBER
+									 from sys_code
+								)
+								select *
+								from PagedPersons
+								where fluentdata_RowNumber between 61 and 80
+2014-01-22 22:00:27,193 [63308] DEBUG Sys - select count(*) from ( select sys_code.* from sys_code ) tb_temp
+2014-01-22 22:00:30,099 [63308] DEBUG Servicesys_code - 获取实体列表
+2014-01-22 22:00:30,100 [63308] DEBUG Sys - with PagedPersons as
+								(
+									select top 100 percent sys_code.*, row_number() over (order by Seq) as FLUENTDATA_ROWNUMBER
+									 from sys_code
+								)
+								select *
+								from PagedPersons
+								where fluentdata_RowNumber between 41 and 60
+2014-01-22 22:00:30,177 [63308] DEBUG Sys - select count(*) from ( select sys_code.* from sys_code ) tb_temp
+2014-01-22 22:00:31,933 [63304] DEBUG Servicesys_code - 获取实体列表
+2014-01-22 22:00:31,934 [63304] DEBUG Sys - with PagedPersons as
+								(
+									select top 100 percent sys_code.*, row_number() over (order by Seq) as FLUENTDATA_ROWNUMBER
+									 from sys_code
+								)
+								select *
+								from PagedPersons
+								where fluentdata_RowNumber between 21 and 40
+2014-01-22 22:00:31,937 [63304] DEBUG Sys - select count(*) from ( select sys_code.* from sys_code ) tb_temp
+2014-01-22 22:00:33,831 [63304] DEBUG Servicesys_code - 获取实体列表
+2014-01-22 22:00:33,831 [63304] DEBUG Sys - select top 20 sys_code.* from sys_code order by Seq
+2014-01-22 22:00:33,837 [63304] DEBUG Sys - select count(*) from ( select sys_code.* from sys_code ) tb_temp
+2014-01-22 22:00:42,784 [63308] DEBUG Servicesys_code - 获取实体列表
+2014-01-22 22:00:42,785 [63308] DEBUG Sys - with PagedPersons as
+								(
+									select top 100 percent sys_code.*, row_number() over (order by Seq) as FLUENTDATA_ROWNUMBER
+									 from sys_code
+								)
+								select *
+								from PagedPersons
+								where fluentdata_RowNumber between 21 and 40
+2014-01-22 22:00:42,789 [63308] DEBUG Sys - select count(*) from ( select sys_code.* from sys_code ) tb_temp
+2014-01-22 22:00:48,487 [63308] DEBUG Servicesys_code - 获取实体列表
+2014-01-22 22:00:48,487 [63308] DEBUG Sys - with PagedPersons as
+								(
+									select top 100 percent sys_code.*, row_number() over (order by Seq) as FLUENTDATA_ROWNUMBER
+									 from sys_code
+								)
+								select *
+								from PagedPersons
+								where fluentdata_RowNumber between 41 and 60
+2014-01-22 22:00:48,489 [63308] DEBUG Sys - select count(*) from ( select sys_code.* from sys_code ) tb_temp
+2014-01-22 22:00:54,604 [51516] DEBUG Servicesys_code - 获取实体列表
+2014-01-22 22:00:54,604 [51516] DEBUG Sys - with PagedPersons as
+								(
+									select top 100 percent sys_code.*, row_number() over (order by Seq) as FLUENTDATA_ROWNUMBER
+									 from sys_code
+								)
+								select *
+								from PagedPersons
+								where fluentdata_RowNumber between 61 and 80
+2014-01-22 22:00:54,606 [51516] DEBUG Sys - select count(*) from ( select sys_code.* from sys_code ) tb_temp
+2014-01-22 22:00:57,182 [63308] DEBUG Servicesys_code - 获取实体列表
+2014-01-22 22:00:57,182 [63308] DEBUG Sys - with PagedPersons as
+								(
+									select top 100 percent sys_code.*, row_number() over (order by Seq) as FLUENTDATA_ROWNUMBER
+									 from sys_code
+								)
+								select *
+								from PagedPersons
+								where fluentdata_RowNumber between 81 and 100
+2014-01-22 22:00:57,184 [63308] DEBUG Sys - select count(*) from ( select sys_code.* from sys_code ) tb_temp
+2014-01-22 22:01:01,390 [51516] DEBUG Servicesys_code - 获取实体列表
+2014-01-22 22:01:01,390 [51516] DEBUG Sys - with PagedPersons as
+								(
+									select top 100 percent sys_code.*, row_number() over (order by Seq) as FLUENTDATA_ROWNUMBER
+									 from sys_code
+								)
+								select *
+								from PagedPersons
+								where fluentdata_RowNumber between 101 and 120
+2014-01-22 22:01:01,394 [51516] DEBUG Sys - select count(*) from ( select sys_code.* from sys_code ) tb_temp
+2014-01-22 22:01:06,058 [51516] DEBUG Servicesys_code - 获取实体列表
+2014-01-22 22:01:06,058 [51516] DEBUG Sys - select top 20 sys_code.* from sys_code order by Seq
+2014-01-22 22:01:06,060 [51516] DEBUG Sys - select count(*) from ( select sys_code.* from sys_code ) tb_temp
+2014-01-22 22:01:45,763 [18004] DEBUG Sys - 
+select 1
+from sys_roleMenuMap A
+left join sys_userRoleMap B on B.RoleCode = A.RoleCode
+left join sys_menu C on C.MenuCode = A.MenuCode
+where B.UserCode = 'admin'
+and C.URL in ('/Sys/code/Index','/Sys/code')
+2014-01-22 22:01:48,093 [18004] DEBUG Servicesys_codeType - 获取动态列表
+2014-01-22 22:01:48,094 [18004] DEBUG Sys - select sys_codeType.* from sys_codeType order by Seq,CodeType
+2014-01-22 22:01:49,799 [18004] DEBUG Servicesys_code - 获取实体列表
+2014-01-22 22:01:49,800 [18004] DEBUG Sys - select top 20 sys_code.* from sys_code order by Seq
+2014-01-22 22:01:49,802 [18004] DEBUG Sys - select count(*) from ( select sys_code.* from sys_code ) tb_temp
+2014-01-22 22:02:44,822 [23508] DEBUG Servicesys_code - 获取实体列表
+2014-01-22 22:02:44,823 [23508] DEBUG Sys - select top 20 sys_code.* from sys_code where  CodeType =  'StockState' order by Seq
+2014-01-22 22:02:44,845 [23508] DEBUG Sys - select count(*) from ( select sys_code.* from sys_code where  CodeType =  'StockState' ) tb_temp
+2014-01-22 22:06:41,266 [54860] DEBUG Servicesys_code - 获取实体列表
+2014-01-22 22:06:41,266 [54860] DEBUG Sys - select top 20 sys_code.* from sys_code where  CodeType =  'BillingUnit' order by Seq
+2014-01-22 22:06:41,298 [54860] DEBUG Sys - select count(*) from ( select sys_code.* from sys_code where  CodeType =  'BillingUnit' ) tb_temp
+2014-01-22 22:07:35,989 [50440] DEBUG Sys - select name from dbo.sysobjects where id = object_id(N'[dbo].[fun_getPY]') and xtype in (N'FN', N'IF', N'TF')
+2014-01-22 22:07:36,013 [50440] DEBUG Sys - select name from dbo.sysobjects where id = object_id(N'[dbo].[fun_getPY]') and xtype in (N'FN', N'IF', N'TF')
+2014-01-22 22:07:36,016 [50440] DEBUG Mms - select name from dbo.sysobjects where id = object_id(N'[dbo].[fun_getPY]') and xtype in (N'FN', N'IF', N'TF')
+2014-01-22 22:07:36,020 [50440] DEBUG Mms - select name from dbo.sysobjects where id = object_id(N'[dbo].[fun_getPY]') and xtype in (N'FN', N'IF', N'TF')
+2014-01-22 22:07:46,014 [55332] DEBUG Servicesys_user - 获取实体对象
+2014-01-22 22:07:46,027 [55332] DEBUG Sys - select sys_user.* from sys_user where  UserCode =  'admin'and Password =  'admin'and IsEnable =  'True'
+2014-01-22 22:07:46,100 [55332] DEBUG Sys - 
+update sys_user
+set LoginCount = isnull(LoginCount,0) + 1
+   ,LastLoginDate = getdate()
+where UserCode = 'admin' 
+2014-01-22 22:07:46,248 [55332] DEBUG Sys - insert into sys_loginHistory([UserCode],[UserName],[HostName],[HostIP],[LoginCity],[LoginDate]) values('admin','管理员','fwytech-PC','localhost','上海市','2014/1/22 22:07:46')
+2014-01-22 22:07:46,252 [55332] DEBUG Servicemms_project - 获取实体对象
+2014-01-22 22:07:46,252 [55332] DEBUG Mms - select mms_project.* from mms_project where  ProjectCode =  '201306030001'
+2014-01-22 22:07:46,649 [62188] DEBUG Sys - select * from sys_userSetting where UserCode='admin'
+2014-01-22 22:07:50,104 [60300] DEBUG Sys - 
+--角色的菜单
+select distinct B.*
+from sys_roleMenuMap A
+inner join sys_menu  B on B.MenuCode = A.MenuCode
+where B.IsEnable='1'
+  and RoleCode in (
+  select RoleCode from sys_userRoleMap where UserCode = 'admin' --用户的角色
+union all
+  select RoleCode from sys_organizeRoleMap where OrganizeCode in  --机构的角色
+  (
+	select OrganizeCode from sys_userOrganizeMap where UserCode = 'admin'
+  )  
+)
+order by B.MenuSeq,B.MenuCode
+2014-01-22 22:08:03,165 [61132] DEBUG Sys - 
+select 1
+from sys_roleMenuMap A
+left join sys_userRoleMap B on B.RoleCode = A.RoleCode
+left join sys_menu C on C.MenuCode = A.MenuCode
+where B.UserCode = 'admin'
+and C.URL in ('/Sys/code/Index','/Sys/code')
+2014-01-22 22:08:06,588 [63376] DEBUG Servicesys_codeType - 获取动态列表
+2014-01-22 22:08:06,589 [63376] DEBUG Sys - select sys_codeType.* from sys_codeType order by Seq,CodeType
+2014-01-22 22:08:08,648 [62188] DEBUG Servicesys_code - 获取实体列表
+2014-01-22 22:08:08,650 [62188] DEBUG Sys - select top 20 sys_code.* from sys_code order by Seq
+2014-01-22 22:08:09,538 [62188] DEBUG Sys - select count(*) from ( select sys_code.* from sys_code ) tb_temp
+2014-01-22 22:08:56,673 [49828] DEBUG Servicesys_code - 获取实体列表
+2014-01-22 22:08:56,673 [49828] DEBUG Sys - select top 20 sys_code.* from sys_code where  CodeType =  'BillingUnit' order by Seq
+2014-01-22 22:08:56,676 [49828] DEBUG Sys - select count(*) from ( select sys_code.* from sys_code where  CodeType =  'BillingUnit' ) tb_temp
+2014-01-22 19:40:09,514 [18092] DEBUG Sys - select name from dbo.sysobjects where id = object_id(N'[dbo].[fun_getPY]') and xtype in (N'FN', N'IF', N'TF')
+2014-01-22 19:40:10,049 [18092] DEBUG Sys - select name from dbo.sysobjects where id = object_id(N'[dbo].[fun_getPY]') and xtype in (N'FN', N'IF', N'TF')
+2014-01-22 19:40:10,069 [18092] DEBUG Mms - select name from dbo.sysobjects where id = object_id(N'[dbo].[fun_getPY]') and xtype in (N'FN', N'IF', N'TF')
+2014-01-22 19:40:10,202 [18092] DEBUG Mms - select name from dbo.sysobjects where id = object_id(N'[dbo].[fun_getPY]') and xtype in (N'FN', N'IF', N'TF')
+2014-01-22 19:40:26,737 [18092] DEBUG Servicesys_user - 获取实体对象
+2014-01-22 19:40:26,745 [18092] DEBUG Sys - select sys_user.* from sys_user where  UserCode =  'admin'and Password =  'admin'and IsEnable =  'True'
+2014-01-22 19:40:27,039 [18092] DEBUG Sys - 
+update sys_user
+set LoginCount = isnull(LoginCount,0) + 1
+   ,LastLoginDate = getdate()
+where UserCode = 'admin' 
+2014-01-22 19:40:27,221 [18092] DEBUG Sys - insert into sys_loginHistory([UserCode],[UserName],[HostName],[HostIP],[LoginCity],[LoginDate]) values('admin','管理员','fwytech-PC','localhost','上海市','星期三 19:40:27')
+2014-01-22 19:40:27,291 [18092] DEBUG Servicemms_project - 获取实体对象
+2014-01-22 19:40:27,291 [18092] DEBUG Mms - select mms_project.* from mms_project where  ProjectCode =  '201306030001'
+2014-01-22 19:40:27,458 [12512] DEBUG Sys - select * from sys_userSetting where UserCode='admin'
+2014-01-22 19:40:33,501 [18092] DEBUG Sys - 
+--角色的菜单
+select distinct B.*
+from sys_roleMenuMap A
+inner join sys_menu  B on B.MenuCode = A.MenuCode
+where B.IsEnable='1'
+  and RoleCode in (
+  select RoleCode from sys_userRoleMap where UserCode = 'admin' --用户的角色
+union all
+  select RoleCode from sys_organizeRoleMap where OrganizeCode in  --机构的角色
+  (
+	select OrganizeCode from sys_userOrganizeMap where UserCode = 'admin'
+  )  
+)
+order by B.MenuSeq,B.MenuCode
+2014-01-22 19:40:38,367 [31300] DEBUG Sys - 
+select 1
+from sys_roleMenuMap A
+left join sys_userRoleMap B on B.RoleCode = A.RoleCode
+left join sys_menu C on C.MenuCode = A.MenuCode
+where B.UserCode = 'admin'
+and C.URL in ('/Sys/organize/Index','/Sys/organize')
+2014-01-22 19:40:38,432 [31300] DEBUG Servicesys_organize - 获取实体列表
+2014-01-22 19:40:38,437 [31300] DEBUG Sys - select sys_organize.* from sys_organize
+2014-01-22 19:41:04,392 [29008] DEBUG Sys - 
+select 1
+from sys_roleMenuMap A
+left join sys_userRoleMap B on B.RoleCode = A.RoleCode
+left join sys_menu C on C.MenuCode = A.MenuCode
+where B.UserCode = 'admin'
+and C.URL in ('/Sys/organize/Index','/Sys/organize')
+2014-01-22 19:41:04,394 [29008] DEBUG Servicesys_organize - 获取实体列表
+2014-01-22 19:41:04,394 [29008] DEBUG Sys - select sys_organize.* from sys_organize
+2014-01-22 19:41:50,986 [29008] DEBUG Sys - 
+select 1
+from sys_roleMenuMap A
+left join sys_userRoleMap B on B.RoleCode = A.RoleCode
+left join sys_menu C on C.MenuCode = A.MenuCode
+where B.UserCode = 'admin'
+and C.URL in ('/Sys/organize/Index','/Sys/organize')
+2014-01-22 19:41:51,003 [29008] DEBUG Servicesys_organize - 获取实体列表
+2014-01-22 19:41:51,004 [29008] DEBUG Sys - select sys_organize.* from sys_organize
+2014-01-22 21:05:42,486 [30932] DEBUG Sys - 
+select distinct A.RoleCode,A.RoleName
+,(case when B.RoleCode is null then 'false' else 'true' end) as Checked
+from sys_role A
+left join sys_organizeRoleMap B on B.RoleCode = A.RoleCode and B.OrganizeCode = '0406'
+2014-01-22 21:05:48,604 [22568] DEBUG Sys - 
+select distinct A.RoleCode,A.RoleName
+,(case when B.RoleCode is null then 'false' else 'true' end) as Checked
+from sys_role A
+left join sys_organizeRoleMap B on B.RoleCode = A.RoleCode and B.OrganizeCode = '04'
+2014-01-22 21:07:57,610 [6860] DEBUG Sys - select * from sys_userSetting where UserCode='admin'
+2014-01-22 21:08:02,517 [33572] DEBUG Sys - 
+--角色的菜单
+select distinct B.*
+from sys_roleMenuMap A
+inner join sys_menu  B on B.MenuCode = A.MenuCode
+where B.IsEnable='1'
+  and RoleCode in (
+  select RoleCode from sys_userRoleMap where UserCode = 'admin' --用户的角色
+union all
+  select RoleCode from sys_organizeRoleMap where OrganizeCode in  --机构的角色
+  (
+	select OrganizeCode from sys_userOrganizeMap where UserCode = 'admin'
+  )  
+)
+order by B.MenuSeq,B.MenuCode
+2014-01-22 21:08:03,730 [31984] DEBUG Sys - 
+select 1
+from sys_roleMenuMap A
+left join sys_userRoleMap B on B.RoleCode = A.RoleCode
+left join sys_menu C on C.MenuCode = A.MenuCode
+where B.UserCode = 'admin'
+and C.URL in ('/Sys/organize/Index','/Sys/organize')
+2014-01-22 21:08:05,291 [31984] DEBUG Servicesys_organize - 获取实体列表
+2014-01-22 21:08:05,291 [31984] DEBUG Sys - select sys_organize.* from sys_organize
+2014-01-22 21:14:48,143 [32872] DEBUG Sys - select * from sys_userSetting where UserCode='admin'
+2014-01-22 21:14:48,545 [32292] DEBUG Sys - 
+--角色的菜单
+select distinct B.*
+from sys_roleMenuMap A
+inner join sys_menu  B on B.MenuCode = A.MenuCode
+where B.IsEnable='1'
+  and RoleCode in (
+  select RoleCode from sys_userRoleMap where UserCode = 'admin' --用户的角色
+union all
+  select RoleCode from sys_organizeRoleMap where OrganizeCode in  --机构的角色
+  (
+	select OrganizeCode from sys_userOrganizeMap where UserCode = 'admin'
+  )  
+)
+order by B.MenuSeq,B.MenuCode
+2014-01-22 21:14:48,994 [32292] DEBUG Sys - 
+select 1
+from sys_roleMenuMap A
+left join sys_userRoleMap B on B.RoleCode = A.RoleCode
+left join sys_menu C on C.MenuCode = A.MenuCode
+where B.UserCode = 'admin'
+and C.URL in ('/Sys/organize/Index','/Sys/organize')
+2014-01-22 21:14:48,995 [32292] DEBUG Servicesys_organize - 获取实体列表
+2014-01-22 21:14:48,995 [32292] DEBUG Sys - select sys_organize.* from sys_organize
+2014-01-22 21:15:31,253 [32992] DEBUG Servicesys_user - 获取实体对象
+2014-01-22 21:15:31,287 [32992] DEBUG Sys - select sys_user.* from sys_user where  UserCode =  'admin'and Password =  'admin'and IsEnable =  'True'
+2014-01-22 21:15:31,359 [32992] DEBUG Sys - 
+update sys_user
+set LoginCount = isnull(LoginCount,0) + 1
+   ,LastLoginDate = getdate()
+where UserCode = 'admin' 
+2014-01-22 21:15:31,579 [32992] DEBUG Sys - insert into sys_loginHistory([UserCode],[UserName],[HostName],[HostIP],[LoginCity],[LoginDate]) values('admin','管理员','fwytech-PC','localhost','上海市','星期三 21:15:31')
+2014-01-22 21:15:31,968 [32992] DEBUG Servicemms_project - 获取实体对象
+2014-01-22 21:15:31,997 [32992] DEBUG Mms - select mms_project.* from mms_project where  ProjectCode =  '201306030001'
+2014-01-22 21:15:32,183 [32292] DEBUG Sys - select * from sys_userSetting where UserCode='admin'
+2014-01-22 21:15:33,247 [32292] DEBUG Sys - 
+--角色的菜单
+select distinct B.*
+from sys_roleMenuMap A
+inner join sys_menu  B on B.MenuCode = A.MenuCode
+where B.IsEnable='1'
+  and RoleCode in (
+  select RoleCode from sys_userRoleMap where UserCode = 'admin' --用户的角色
+union all
+  select RoleCode from sys_organizeRoleMap where OrganizeCode in  --机构的角色
+  (
+	select OrganizeCode from sys_userOrganizeMap where UserCode = 'admin'
+  )  
+)
+order by B.MenuSeq,B.MenuCode
+2014-01-22 21:15:39,402 [32992] DEBUG Sys - 
+select 1
+from sys_roleMenuMap A
+left join sys_userRoleMap B on B.RoleCode = A.RoleCode
+left join sys_menu C on C.MenuCode = A.MenuCode
+where B.UserCode = 'admin'
+and C.URL in ('/Sys/organize/Index','/Sys/organize')
+2014-01-22 21:15:39,404 [32992] DEBUG Servicesys_organize - 获取实体列表
+2014-01-22 21:15:39,404 [32992] DEBUG Sys - select sys_organize.* from sys_organize
+2014-01-22 21:33:58,402 [32368] DEBUG Sys - select * from sys_userSetting where UserCode='admin'
+2014-01-22 21:33:59,322 [32716] DEBUG Sys - 
+--角色的菜单
+select distinct B.*
+from sys_roleMenuMap A
+inner join sys_menu  B on B.MenuCode = A.MenuCode
+where B.IsEnable='1'
+  and RoleCode in (
+  select RoleCode from sys_userRoleMap where UserCode = 'admin' --用户的角色
+union all
+  select RoleCode from sys_organizeRoleMap where OrganizeCode in  --机构的角色
+  (
+	select OrganizeCode from sys_userOrganizeMap where UserCode = 'admin'
+  )  
+)
+order by B.MenuSeq,B.MenuCode
+2014-01-22 21:33:59,900 [32716] DEBUG Sys - 
+select 1
+from sys_roleMenuMap A
+left join sys_userRoleMap B on B.RoleCode = A.RoleCode
+left join sys_menu C on C.MenuCode = A.MenuCode
+where B.UserCode = 'admin'
+and C.URL in ('/Sys/organize/Index','/Sys/organize')
+2014-01-22 21:33:59,919 [32716] DEBUG Servicesys_organize - 获取实体列表
+2014-01-22 21:33:59,919 [32716] DEBUG Sys - select sys_organize.* from sys_organize
+2014-01-22 21:34:33,532 [32776] DEBUG Servicesys_user - 获取实体对象
+2014-01-22 21:34:33,532 [32776] DEBUG Sys - select sys_user.* from sys_user where  UserCode =  'admin'and Password =  'admin'and IsEnable =  'True'
+2014-01-22 21:34:33,535 [32776] DEBUG Sys - 
+update sys_user
+set LoginCount = isnull(LoginCount,0) + 1
+   ,LastLoginDate = getdate()
+where UserCode = 'admin' 
+2014-01-22 21:34:33,545 [32776] DEBUG Sys - insert into sys_loginHistory([UserCode],[UserName],[HostName],[HostIP],[LoginCity],[LoginDate]) values('admin','管理员','fwytech-PC','localhost','上海市','星期三 21:34:33')
+2014-01-22 21:34:33,545 [32776] DEBUG Servicemms_project - 获取实体对象
+2014-01-22 21:34:33,548 [32776] DEBUG Mms - select mms_project.* from mms_project where  ProjectCode =  '201306030001'
+2014-01-22 21:34:33,565 [30896] DEBUG Sys - select * from sys_userSetting where UserCode='admin'
+2014-01-22 21:34:35,135 [32776] DEBUG Sys - 
+--角色的菜单
+select distinct B.*
+from sys_roleMenuMap A
+inner join sys_menu  B on B.MenuCode = A.MenuCode
+where B.IsEnable='1'
+  and RoleCode in (
+  select RoleCode from sys_userRoleMap where UserCode = 'admin' --用户的角色
+union all
+  select RoleCode from sys_organizeRoleMap where OrganizeCode in  --机构的角色
+  (
+	select OrganizeCode from sys_userOrganizeMap where UserCode = 'admin'
+  )  
+)
+order by B.MenuSeq,B.MenuCode
+2014-01-22 21:34:46,122 [24472] DEBUG Sys - 
+select 1
+from sys_roleMenuMap A
+left join sys_userRoleMap B on B.RoleCode = A.RoleCode
+left join sys_menu C on C.MenuCode = A.MenuCode
+where B.UserCode = 'admin'
+and C.URL in ('/Sys/organize/Index','/Sys/organize')
+2014-01-22 21:34:46,143 [24472] DEBUG Servicesys_organize - 获取实体列表
+2014-01-22 21:34:46,143 [24472] DEBUG Sys - select sys_organize.* from sys_organize
+2014-01-22 21:36:35,718 [24472] DEBUG Servicesys_organize - 编辑记录
+2014-01-22 21:36:36,241 [24472] DEBUG Servicesys_organize - 获取动态对象
+2014-01-22 21:36:36,381 [24472] DEBUG Sys - select 
+        sys_organize
+    .* from 
+        sys_organize
+     where  OrganizeCode =  '041001'
+2014-01-22 21:36:36,812 [24472] DEBUG Sys - update 
+        sys_organize
+     set [ParentCode] = '0410', [OrganizeCode] = '041001', [OrganizeName] = '生产车间1', [Description] = '', [UpdatePerson] = '管理员', [UpdateDate] = '星期三 21:36:36' where  OrganizeCode =  '041001'
+2014-01-22 21:36:38,392 [24472] DEBUG Servicesys_organize - 获取实体列表
+2014-01-22 21:36:38,393 [24472] DEBUG Sys - select sys_organize.* from sys_organize
+2014-01-22 21:49:56,444 [33556] DEBUG Sys - 
+select distinct A.RoleCode,A.RoleName
+,(case when B.RoleCode is null then 'false' else 'true' end) as Checked
+from sys_role A
+left join sys_organizeRoleMap B on B.RoleCode = A.RoleCode and B.OrganizeCode = '0401'
+2014-01-22 21:51:33,724 [32368] DEBUG Sys - 
+select distinct A.RoleCode,A.RoleName
+,(case when B.RoleCode is null then 'false' else 'true' end) as Checked
+from sys_role A
+left join sys_organizeRoleMap B on B.RoleCode = A.RoleCode and B.OrganizeCode = '0401'

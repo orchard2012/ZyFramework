@@ -1,0 +1,789 @@
+2014-01-08 10:46:14,767 [12552] DEBUG Sys - select name from dbo.sysobjects where id = object_id(N'[dbo].[fun_getPY]') and xtype in (N'FN', N'IF', N'TF')
+2014-01-08 10:46:15,139 [12552] DEBUG Sys - select name from dbo.sysobjects where id = object_id(N'[dbo].[fun_getPY]') and xtype in (N'FN', N'IF', N'TF')
+2014-01-08 10:46:15,182 [12552] DEBUG Mms - select name from dbo.sysobjects where id = object_id(N'[dbo].[fun_getPY]') and xtype in (N'FN', N'IF', N'TF')
+2014-01-08 10:46:15,269 [12552] DEBUG Mms - select name from dbo.sysobjects where id = object_id(N'[dbo].[fun_getPY]') and xtype in (N'FN', N'IF', N'TF')
+2014-01-08 10:46:34,383 [12552] DEBUG Servicesys_user - 获取实体对象
+2014-01-08 10:46:34,390 [12552] DEBUG Sys - select sys_user.* from sys_user where  UserCode =  'admin'and Password =  '1234'and IsEnable =  'True'
+2014-01-08 10:46:34,678 [12552] DEBUG Sys - 
+update sys_user
+set LoginCount = isnull(LoginCount,0) + 1
+   ,LastLoginDate = getdate()
+where UserCode = 'admin' 
+2014-01-08 10:46:34,974 [12552] DEBUG Sys - insert into sys_loginHistory([UserCode],[UserName],[HostName],[HostIP],[LoginCity],[LoginDate]) values('admin','管理员','fwytech-PC','localhost','上海市','2014/1/8 10:46:34')
+2014-01-08 10:46:35,034 [12552] DEBUG Servicemms_project - 获取实体对象
+2014-01-08 10:46:35,034 [12552] DEBUG Mms - select mms_project.* from mms_project where  ProjectCode =  '201306030001'
+2014-01-08 10:46:35,224 [9128] DEBUG Sys - select * from sys_userSetting where UserCode='admin'
+2014-01-08 10:46:37,255 [9128] DEBUG Sys - 
+--角色的菜单
+select distinct B.*
+from sys_roleMenuMap A
+inner join sys_menu  B on B.MenuCode = A.MenuCode
+where B.IsEnable='1'
+  and RoleCode in (
+  select RoleCode from sys_userRoleMap where UserCode = 'admin' --用户的角色
+union all
+  select RoleCode from sys_organizeRoleMap where OrganizeCode in  --机构的角色
+  (
+	select OrganizeCode from sys_userOrganizeMap where UserCode = 'admin'
+  )  
+)
+order by B.MenuSeq,B.MenuCode
+2014-01-08 10:47:03,103 [9128] DEBUG Sys - select * from sys_userSetting where UserCode='admin'
+2014-01-08 10:52:54,666 [9128] DEBUG Sys - select * from sys_userSetting where UserCode='admin'
+2014-01-08 10:52:54,834 [10360] DEBUG Sys - 
+--角色的菜单
+select distinct B.*
+from sys_roleMenuMap A
+inner join sys_menu  B on B.MenuCode = A.MenuCode
+where B.IsEnable='1'
+  and RoleCode in (
+  select RoleCode from sys_userRoleMap where UserCode = 'admin' --用户的角色
+union all
+  select RoleCode from sys_organizeRoleMap where OrganizeCode in  --机构的角色
+  (
+	select OrganizeCode from sys_userOrganizeMap where UserCode = 'admin'
+  )  
+)
+order by B.MenuSeq,B.MenuCode
+2014-01-08 10:57:45,413 [12084] DEBUG Sys - 
+--角色的菜单
+select distinct B.*
+from sys_roleMenuMap A
+inner join sys_menu  B on B.MenuCode = A.MenuCode
+where B.IsEnable='1'
+  and RoleCode in (
+  select RoleCode from sys_userRoleMap where UserCode = 'admin' --用户的角色
+union all
+  select RoleCode from sys_organizeRoleMap where OrganizeCode in  --机构的角色
+  (
+	select OrganizeCode from sys_userOrganizeMap where UserCode = 'admin'
+  )  
+)
+order by B.MenuSeq,B.MenuCode
+2014-01-08 10:58:24,564 [11864] DEBUG Sys - select * from sys_userSetting where UserCode='admin'
+2014-01-08 10:58:24,696 [12848] DEBUG Sys - 
+--角色的菜单
+select distinct B.*
+from sys_roleMenuMap A
+inner join sys_menu  B on B.MenuCode = A.MenuCode
+where B.IsEnable='1'
+  and RoleCode in (
+  select RoleCode from sys_userRoleMap where UserCode = 'admin' --用户的角色
+union all
+  select RoleCode from sys_organizeRoleMap where OrganizeCode in  --机构的角色
+  (
+	select OrganizeCode from sys_userOrganizeMap where UserCode = 'admin'
+  )  
+)
+order by B.MenuSeq,B.MenuCode
+2014-01-08 11:07:32,964 [12880] DEBUG Sys - select * from sys_userSetting where UserCode='admin'
+2014-01-08 11:07:33,106 [10264] DEBUG Sys - 
+--角色的菜单
+select distinct B.*
+from sys_roleMenuMap A
+inner join sys_menu  B on B.MenuCode = A.MenuCode
+where B.IsEnable='1'
+  and RoleCode in (
+  select RoleCode from sys_userRoleMap where UserCode = 'admin' --用户的角色
+union all
+  select RoleCode from sys_organizeRoleMap where OrganizeCode in  --机构的角色
+  (
+	select OrganizeCode from sys_userOrganizeMap where UserCode = 'admin'
+  )  
+)
+order by B.MenuSeq,B.MenuCode
+2014-01-08 11:07:42,216 [15464] DEBUG Sys - select * from sys_userSetting where UserCode='admin'
+2014-01-08 11:07:42,369 [16316] DEBUG Sys - 
+--角色的菜单
+select distinct B.*
+from sys_roleMenuMap A
+inner join sys_menu  B on B.MenuCode = A.MenuCode
+where B.IsEnable='1'
+  and RoleCode in (
+  select RoleCode from sys_userRoleMap where UserCode = 'admin' --用户的角色
+union all
+  select RoleCode from sys_organizeRoleMap where OrganizeCode in  --机构的角色
+  (
+	select OrganizeCode from sys_userOrganizeMap where UserCode = 'admin'
+  )  
+)
+order by B.MenuSeq,B.MenuCode
+2014-01-08 11:08:52,499 [12848] DEBUG Sys - 
+select 1
+from sys_roleMenuMap A
+left join sys_userRoleMap B on B.RoleCode = A.RoleCode
+left join sys_menu C on C.MenuCode = A.MenuCode
+where B.UserCode = 'admin'
+and C.URL in ('/Mms/direct/Index','/Mms/direct')
+2014-01-08 11:08:52,645 [12848] DEBUG Servicemms_warehouse - 获取动态列表
+2014-01-08 11:08:52,648 [12848] DEBUG Mms - select WarehouseCode as value,WarehouseName as text from mms_warehouse where  ProjectCode =  '201306030001'
+2014-01-08 11:08:52,692 [12848] DEBUG Servicesys_code - 获取动态列表
+2014-01-08 11:08:52,693 [12848] DEBUG Sys - select Code as value,Text as text from sys_code where  CodeType =  'SupplyType'
+2014-01-08 11:08:53,812 [12880] DEBUG Servicemms_direct - 获取动态列表
+2014-01-08 11:08:53,812 [12880] DEBUG Mms - select top 20 
+        A.*, B.ProjectName, C.MaterialTypeName,D.MerchantsName as SupplierName,E.MerchantsName as PickUnitName
+     from 
+        mms_direct A
+        left join mms_project       B on B.ProjectCode      = A.ProjectCode
+        left join mms_materialType  C on C.MaterialType     = A.MaterialType
+        left join mms_merchants     D on D.MerchantsCode    = A.SupplierCode
+        left join mms_merchants     E on E.MerchantsCode    = A.PickUnit
+     where  A.ProjectCode =  '201306030001' order by A.BillNo
+2014-01-08 11:08:54,012 [12880] DEBUG Mms - select count(*) from ( select 
+        A.*, B.ProjectName, C.MaterialTypeName,D.MerchantsName as SupplierName,E.MerchantsName as PickUnitName
+     from 
+        mms_direct A
+        left join mms_project       B on B.ProjectCode      = A.ProjectCode
+        left join mms_materialType  C on C.MaterialType     = A.MaterialType
+        left join mms_merchants     D on D.MerchantsCode    = A.SupplierCode
+        left join mms_merchants     E on E.MerchantsCode    = A.PickUnit
+     where  A.ProjectCode =  '201306030001' ) tb_temp
+2014-01-08 11:13:22,981 [10264] DEBUG Sys - select * from sys_userSetting where UserCode='admin'
+2014-01-08 11:13:23,144 [16316] DEBUG Sys - 
+--角色的菜单
+select distinct B.*
+from sys_roleMenuMap A
+inner join sys_menu  B on B.MenuCode = A.MenuCode
+where B.IsEnable='1'
+  and RoleCode in (
+  select RoleCode from sys_userRoleMap where UserCode = 'admin' --用户的角色
+union all
+  select RoleCode from sys_organizeRoleMap where OrganizeCode in  --机构的角色
+  (
+	select OrganizeCode from sys_userOrganizeMap where UserCode = 'admin'
+  )  
+)
+order by B.MenuSeq,B.MenuCode
+2014-01-08 13:02:42,450 [5912] DEBUG Sys - select * from sys_userSetting where UserCode='admin'
+2014-01-08 13:02:52,629 [11820] DEBUG Sys - update sys_userSetting set [SettingValue] = 'default' where [UserCode] = 'admin' and [SettingCode] = 'theme'
+2014-01-08 13:02:52,643 [11820] DEBUG Sys - insert into sys_userSetting([UserCode],[SettingCode],[SettingName],[SettingValue],[Description]) values('admin','theme','','default','')
+2014-01-08 13:02:52,676 [11820] DEBUG Sys - update sys_userSetting set [SettingValue] = 'menubutton' where [UserCode] = 'admin' and [SettingCode] = 'navigation'
+2014-01-08 13:02:52,680 [11820] DEBUG Sys - insert into sys_userSetting([UserCode],[SettingCode],[SettingName],[SettingValue],[Description]) values('admin','navigation','','menubutton','')
+2014-01-08 13:02:52,689 [11820] DEBUG Sys - update sys_userSetting set [SettingValue] = '20' where [UserCode] = 'admin' and [SettingCode] = 'gridrows'
+2014-01-08 13:02:52,693 [11820] DEBUG Sys - insert into sys_userSetting([UserCode],[SettingCode],[SettingName],[SettingValue],[Description]) values('admin','gridrows','','20','')
+2014-01-08 13:02:54,305 [12412] DEBUG Sys - select * from sys_userSetting where UserCode='admin'
+2014-01-08 13:02:54,904 [22384] DEBUG Sys - 
+--角色的菜单
+select distinct B.*
+from sys_roleMenuMap A
+inner join sys_menu  B on B.MenuCode = A.MenuCode
+where B.IsEnable='1'
+  and RoleCode in (
+  select RoleCode from sys_userRoleMap where UserCode = 'admin' --用户的角色
+union all
+  select RoleCode from sys_organizeRoleMap where OrganizeCode in  --机构的角色
+  (
+	select OrganizeCode from sys_userOrganizeMap where UserCode = 'admin'
+  )  
+)
+order by B.MenuSeq,B.MenuCode
+2014-01-08 13:03:36,631 [22384] DEBUG Sys - select * from sys_userSetting where UserCode='admin'
+2014-01-08 13:03:41,911 [16316] DEBUG Sys - update sys_userSetting set [SettingValue] = 'gray' where [UserCode] = 'admin' and [SettingCode] = 'theme'
+2014-01-08 13:03:41,927 [16316] DEBUG Sys - update sys_userSetting set [SettingValue] = 'menubutton' where [UserCode] = 'admin' and [SettingCode] = 'navigation'
+2014-01-08 13:03:41,928 [16316] DEBUG Sys - update sys_userSetting set [SettingValue] = '20' where [UserCode] = 'admin' and [SettingCode] = 'gridrows'
+2014-01-08 13:03:46,283 [15464] DEBUG Sys - select * from sys_userSetting where UserCode='admin'
+2014-01-08 13:03:46,613 [14836] DEBUG Sys - 
+--角色的菜单
+select distinct B.*
+from sys_roleMenuMap A
+inner join sys_menu  B on B.MenuCode = A.MenuCode
+where B.IsEnable='1'
+  and RoleCode in (
+  select RoleCode from sys_userRoleMap where UserCode = 'admin' --用户的角色
+union all
+  select RoleCode from sys_organizeRoleMap where OrganizeCode in  --机构的角色
+  (
+	select OrganizeCode from sys_userOrganizeMap where UserCode = 'admin'
+  )  
+)
+order by B.MenuSeq,B.MenuCode
+2014-01-08 13:58:56,601 [5912] DEBUG Sys - select * from sys_userSetting where UserCode='admin'
+2014-01-08 13:59:18,745 [12880] DEBUG Sys - select * from sys_userSetting where UserCode='admin'
+2014-01-08 13:59:19,037 [12412] DEBUG Sys - 
+--角色的菜单
+select distinct B.*
+from sys_roleMenuMap A
+inner join sys_menu  B on B.MenuCode = A.MenuCode
+where B.IsEnable='1'
+  and RoleCode in (
+  select RoleCode from sys_userRoleMap where UserCode = 'admin' --用户的角色
+union all
+  select RoleCode from sys_organizeRoleMap where OrganizeCode in  --机构的角色
+  (
+	select OrganizeCode from sys_userOrganizeMap where UserCode = 'admin'
+  )  
+)
+order by B.MenuSeq,B.MenuCode
+2014-01-08 13:59:22,116 [16316] DEBUG Sys - select * from sys_userSetting where UserCode='admin'
+2014-01-08 13:59:29,354 [12880] DEBUG Sys - select * from sys_userSetting where UserCode='admin'
+2014-01-08 13:59:31,795 [10264] DEBUG Sys - select * from sys_userSetting where UserCode='admin'
+2014-01-08 13:59:32,134 [22384] DEBUG Sys - 
+--角色的菜单
+select distinct B.*
+from sys_roleMenuMap A
+inner join sys_menu  B on B.MenuCode = A.MenuCode
+where B.IsEnable='1'
+  and RoleCode in (
+  select RoleCode from sys_userRoleMap where UserCode = 'admin' --用户的角色
+union all
+  select RoleCode from sys_organizeRoleMap where OrganizeCode in  --机构的角色
+  (
+	select OrganizeCode from sys_userOrganizeMap where UserCode = 'admin'
+  )  
+)
+order by B.MenuSeq,B.MenuCode
+2014-01-08 13:59:36,572 [12880] DEBUG Sys - select * from sys_userSetting where UserCode='admin'
+2014-01-08 13:59:45,209 [24932] DEBUG Sys - update sys_userSetting set [SettingValue] = 'default' where [UserCode] = 'admin' and [SettingCode] = 'theme'
+2014-01-08 13:59:45,212 [24932] DEBUG Sys - update sys_userSetting set [SettingValue] = 'accordion' where [UserCode] = 'admin' and [SettingCode] = 'navigation'
+2014-01-08 13:59:45,217 [24932] DEBUG Sys - update sys_userSetting set [SettingValue] = '20' where [UserCode] = 'admin' and [SettingCode] = 'gridrows'
+2014-01-08 13:59:50,172 [22392] DEBUG Sys - select * from sys_userSetting where UserCode='admin'
+2014-01-08 13:59:50,455 [24756] DEBUG Sys - 
+--角色的菜单
+select distinct B.*
+from sys_roleMenuMap A
+inner join sys_menu  B on B.MenuCode = A.MenuCode
+where B.IsEnable='1'
+  and RoleCode in (
+  select RoleCode from sys_userRoleMap where UserCode = 'admin' --用户的角色
+union all
+  select RoleCode from sys_organizeRoleMap where OrganizeCode in  --机构的角色
+  (
+	select OrganizeCode from sys_userOrganizeMap where UserCode = 'admin'
+  )  
+)
+order by B.MenuSeq,B.MenuCode
+2014-01-08 14:04:59,564 [25304] DEBUG ServiceModelBase - 获取动态列表
+2014-01-08 14:04:59,582 [25304] DEBUG Mms - select top 20 
+    ProjectName as text,ProjectCode as value
+   from 
+    mms_project
+   order by ProjectCode
+2014-01-08 14:04:59,612 [25304] DEBUG Mms - select count(*) from ( select 
+    ProjectName as text,ProjectCode as value
+   from 
+    mms_project
+   ) tb_temp
+2014-01-08 14:14:26,921 [23004] DEBUG ServiceModelBase - 获取动态列表
+2014-01-08 14:14:26,943 [23004] DEBUG Mms - select top 20 
+    ProjectName as text,ProjectCode as value
+   from 
+    mms_project
+   order by ProjectCode
+2014-01-08 14:14:26,943 [23004] DEBUG Mms - select count(*) from ( select 
+    ProjectName as text,ProjectCode as value
+   from 
+    mms_project
+   ) tb_temp
+2014-01-08 14:14:46,611 [26348] DEBUG ServiceModelBase - 获取动态列表
+2014-01-08 14:14:46,612 [26348] DEBUG Mms - select top 20 
+    ProjectName as text,ProjectCode as value
+   from 
+    mms_project
+   where  ProjectCode like '201306%' order by ProjectCode
+2014-01-08 14:14:46,762 [26348] DEBUG Mms - select count(*) from ( select 
+    ProjectName as text,ProjectCode as value
+   from 
+    mms_project
+   where  ProjectCode like '201306%' ) tb_temp
+2014-01-08 14:14:55,193 [26472] DEBUG ServiceModelBase - 获取动态列表
+2014-01-08 14:14:55,193 [26472] DEBUG Mms - select top 20 
+    ProjectName as text,ProjectCode as value
+   from 
+    mms_project
+   where  ProjectCode like '201306030001%' order by ProjectCode
+2014-01-08 14:14:55,237 [26472] DEBUG Mms - select count(*) from ( select 
+    ProjectName as text,ProjectCode as value
+   from 
+    mms_project
+   where  ProjectCode like '201306030001%' ) tb_temp
+2014-01-08 14:15:13,375 [26352] DEBUG ServiceModelBase - 获取动态列表
+2014-01-08 14:15:13,375 [26352] DEBUG Mms - select top 20 
+    ProjectName as text,ProjectCode as value
+   from 
+    mms_project
+   where  ProjectCode like '201306030001%'and ProjectName like '%至顶%' order by ProjectCode
+2014-01-08 14:15:13,501 [26352] DEBUG Mms - select count(*) from ( select 
+    ProjectName as text,ProjectCode as value
+   from 
+    mms_project
+   where  ProjectCode like '201306030001%'and ProjectName like '%至顶%' ) tb_temp
+2014-01-08 14:15:23,547 [20692] DEBUG ServiceModelBase - 获取动态列表
+2014-01-08 14:15:23,547 [20692] DEBUG Mms - select top 20 
+    ProjectName as text,ProjectCode as value
+   from 
+    mms_project
+   where  ProjectName like '%至%' order by ProjectCode
+2014-01-08 14:15:23,548 [20692] DEBUG Mms - select count(*) from ( select 
+    ProjectName as text,ProjectCode as value
+   from 
+    mms_project
+   where  ProjectName like '%至%' ) tb_temp
+2014-01-08 14:31:53,601 [26348] DEBUG ServiceModelBase - 获取动态列表
+2014-01-08 14:31:53,603 [26348] DEBUG Mms - select top 20 
+    ProjectName as text,ProjectCode as value
+   from 
+    mms_project
+   order by ProjectCode
+2014-01-08 14:31:53,604 [26348] DEBUG Mms - select count(*) from ( select 
+    ProjectName as text,ProjectCode as value
+   from 
+    mms_project
+   ) tb_temp
+2014-01-08 14:32:04,137 [26352] DEBUG ServiceModelBase - 获取动态列表
+2014-01-08 14:32:04,138 [26352] DEBUG Mms - select top 20 
+    ProjectName as text,ProjectCode as value
+   from 
+    mms_project
+   order by ProjectCode
+2014-01-08 14:32:04,138 [26352] DEBUG Mms - select count(*) from ( select 
+    ProjectName as text,ProjectCode as value
+   from 
+    mms_project
+   ) tb_temp
+2014-01-08 14:32:08,206 [26472] DEBUG ServiceModelBase - 获取动态列表
+2014-01-08 14:32:08,207 [26472] DEBUG Mms - select top 20 
+    ProjectName as text,ProjectCode as value
+   from 
+    mms_project
+   order by ProjectCode
+2014-01-08 14:32:08,251 [26472] DEBUG Mms - select count(*) from ( select 
+    ProjectName as text,ProjectCode as value
+   from 
+    mms_project
+   ) tb_temp
+2014-01-08 14:32:15,227 [23004] DEBUG ServiceModelBase - 获取动态列表
+2014-01-08 14:32:15,227 [23004] DEBUG Mms - select top 20 
+    ProjectName as text,ProjectCode as value
+   from 
+    mms_project
+   order by ProjectCode
+2014-01-08 14:32:15,227 [23004] DEBUG Mms - select count(*) from ( select 
+    ProjectName as text,ProjectCode as value
+   from 
+    mms_project
+   ) tb_temp
+2014-01-08 21:27:03,742 [53028] DEBUG Servicesys_user - 获取实体对象
+2014-01-08 21:27:03,864 [53028] ERROR Servicesys_user - 获取实体对象失败
+System.Exception: 数据库不可用,请检查系统设置后重试！
+   在 Zephyr.Core.Db.<Context>b__2(ErrorEventArgs e) 位置 e:\private\项目源码\萧勤源码\Zephyr.Net框架源码20131022\source20131022\Zephyr.Net\Zephyr.Core\Core\Db.cs:行号 98
+   在 Zephyr.Data.ExecuteQueryHandler.HandleQueryException(Exception exception) 位置 e:\private\项目源码\萧勤源码\Zephyr.Net框架源码20131022\source20131022\Zephyr.Net\Zephyr.Data\Command\Handlers\ExecuteQueryHandler.cs:行号 105
+   在 Zephyr.Data.ExecuteQueryHandler.ExecuteQuery(Boolean useReader, Action action) 位置 e:\private\项目源码\萧勤源码\Zephyr.Net框架源码20131022\source20131022\Zephyr.Net\Zephyr.Data\Command\Handlers\ExecuteQueryHandler.cs:行号 28
+   在 Zephyr.Data.DbCommand.QuerySingle[TEntity](Action`2 customMapper) 位置 e:\private\项目源码\萧勤源码\Zephyr.Net框架源码20131022\source20131022\Zephyr.Net\Zephyr.Data\Command\PartialClasses\QuerySingle.cs:行号 12
+   在 Zephyr.Data.SelectBuilder`1.QuerySingle(Action`2 customMapper) 位置 e:\private\项目源码\萧勤源码\Zephyr.Net框架源码20131022\source20131022\Zephyr.Net\Zephyr.Data\Builders\Select\SelectBuilder.cs:行号 129
+   在 Zephyr.Core.ServiceBase`1.<>c__DisplayClass70.<GetModel>b__6f() 位置 e:\private\项目源码\萧勤源码\Zephyr.Net框架源码20131022\source20131022\Zephyr.Net\Zephyr.Core\Base\ServiceBaseQuery.cs:行号 51
+   在 Zephyr.Core.LogHelper.Logger(ILog log, String function, ErrorHandle errorHandleType, Action tryHandle, Action`1 catchHandle, Action finallyHandle) 位置 e:\private\项目源码\萧勤源码\Zephyr.Net框架源码20131022\source20131022\Zephyr.Net\Zephyr.Core\Logs\LogHelper.cs:行号 44
+2014-01-08 21:27:03,961 [53028] ERROR /login/doAction - System.Exception: 数据库不可用,请检查系统设置后重试！
+   在 Zephyr.Core.LogHelper.Logger(ILog log, String function, ErrorHandle errorHandleType, Action tryHandle, Action`1 catchHandle, Action finallyHandle) 位置 e:\private\项目源码\萧勤源码\Zephyr.Net框架源码20131022\source20131022\Zephyr.Net\Zephyr.Core\Logs\LogHelper.cs:行号 54
+   在 Zephyr.Core.ServiceBase`1.Logger(String function, Action tryHandle, Action`1 catchHandle, Action finallyHandle) 位置 e:\private\项目源码\萧勤源码\Zephyr.Net框架源码20131022\source20131022\Zephyr.Net\Zephyr.Core\Base\ServiceBaseLog.cs:行号 23
+   在 Zephyr.Core.ServiceBase`1.GetModel(ParamQuery param) 位置 e:\private\项目源码\萧勤源码\Zephyr.Net框架源码20131022\source20131022\Zephyr.Net\Zephyr.Core\Base\ServiceBaseQuery.cs:行号 51
+   在 Zephyr.Models.sys_userService.Login(JObject request) 位置 e:\private\项目源码\萧勤源码\Zephyr.Net框架源码20131022\source20131022\Zephyr.Web\Areas\Sys\Models\sys_user.cs:行号 24
+   在 Zephyr.Controllers.LoginController.DoAction(JObject request) 位置 e:\private\项目源码\萧勤源码\Zephyr.Net框架源码20131022\source20131022\Zephyr.Web\Controllers\LoginController.cs:行号 42
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+2014-01-08 21:27:26,849 [53780] DEBUG Servicesys_user - 获取实体对象
+2014-01-08 21:27:26,882 [53780] ERROR Servicesys_user - 获取实体对象失败
+System.Exception: 数据库不可用,请检查系统设置后重试！
+   在 Zephyr.Core.Db.<Context>b__2(ErrorEventArgs e) 位置 e:\private\项目源码\萧勤源码\Zephyr.Net框架源码20131022\source20131022\Zephyr.Net\Zephyr.Core\Core\Db.cs:行号 98
+   在 Zephyr.Data.ExecuteQueryHandler.HandleQueryException(Exception exception) 位置 e:\private\项目源码\萧勤源码\Zephyr.Net框架源码20131022\source20131022\Zephyr.Net\Zephyr.Data\Command\Handlers\ExecuteQueryHandler.cs:行号 105
+   在 Zephyr.Data.ExecuteQueryHandler.ExecuteQuery(Boolean useReader, Action action) 位置 e:\private\项目源码\萧勤源码\Zephyr.Net框架源码20131022\source20131022\Zephyr.Net\Zephyr.Data\Command\Handlers\ExecuteQueryHandler.cs:行号 28
+   在 Zephyr.Data.DbCommand.QuerySingle[TEntity](Action`2 customMapper) 位置 e:\private\项目源码\萧勤源码\Zephyr.Net框架源码20131022\source20131022\Zephyr.Net\Zephyr.Data\Command\PartialClasses\QuerySingle.cs:行号 12
+   在 Zephyr.Data.SelectBuilder`1.QuerySingle(Action`2 customMapper) 位置 e:\private\项目源码\萧勤源码\Zephyr.Net框架源码20131022\source20131022\Zephyr.Net\Zephyr.Data\Builders\Select\SelectBuilder.cs:行号 129
+   在 Zephyr.Core.ServiceBase`1.<>c__DisplayClass70.<GetModel>b__6f() 位置 e:\private\项目源码\萧勤源码\Zephyr.Net框架源码20131022\source20131022\Zephyr.Net\Zephyr.Core\Base\ServiceBaseQuery.cs:行号 51
+   在 Zephyr.Core.LogHelper.Logger(ILog log, String function, ErrorHandle errorHandleType, Action tryHandle, Action`1 catchHandle, Action finallyHandle) 位置 e:\private\项目源码\萧勤源码\Zephyr.Net框架源码20131022\source20131022\Zephyr.Net\Zephyr.Core\Logs\LogHelper.cs:行号 44
+2014-01-08 21:27:26,891 [53780] ERROR /login/doAction - System.Exception: 数据库不可用,请检查系统设置后重试！
+   在 Zephyr.Core.LogHelper.Logger(ILog log, String function, ErrorHandle errorHandleType, Action tryHandle, Action`1 catchHandle, Action finallyHandle) 位置 e:\private\项目源码\萧勤源码\Zephyr.Net框架源码20131022\source20131022\Zephyr.Net\Zephyr.Core\Logs\LogHelper.cs:行号 54
+   在 Zephyr.Core.ServiceBase`1.Logger(String function, Action tryHandle, Action`1 catchHandle, Action finallyHandle) 位置 e:\private\项目源码\萧勤源码\Zephyr.Net框架源码20131022\source20131022\Zephyr.Net\Zephyr.Core\Base\ServiceBaseLog.cs:行号 23
+   在 Zephyr.Core.ServiceBase`1.GetModel(ParamQuery param) 位置 e:\private\项目源码\萧勤源码\Zephyr.Net框架源码20131022\source20131022\Zephyr.Net\Zephyr.Core\Base\ServiceBaseQuery.cs:行号 51
+   在 Zephyr.Models.sys_userService.Login(JObject request) 位置 e:\private\项目源码\萧勤源码\Zephyr.Net框架源码20131022\source20131022\Zephyr.Web\Areas\Sys\Models\sys_user.cs:行号 24
+   在 Zephyr.Controllers.LoginController.DoAction(JObject request) 位置 e:\private\项目源码\萧勤源码\Zephyr.Net框架源码20131022\source20131022\Zephyr.Web\Controllers\LoginController.cs:行号 42
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+2014-01-08 21:28:27,074 [53780] DEBUG Servicesys_user - 获取实体对象
+2014-01-08 21:28:27,094 [53780] ERROR Servicesys_user - 获取实体对象失败
+System.Exception: 数据库不可用,请检查系统设置后重试！
+   在 Zephyr.Core.Db.<Context>b__2(ErrorEventArgs e) 位置 e:\private\项目源码\萧勤源码\Zephyr.Net框架源码20131022\source20131022\Zephyr.Net\Zephyr.Core\Core\Db.cs:行号 98
+   在 Zephyr.Data.ExecuteQueryHandler.HandleQueryException(Exception exception) 位置 e:\private\项目源码\萧勤源码\Zephyr.Net框架源码20131022\source20131022\Zephyr.Net\Zephyr.Data\Command\Handlers\ExecuteQueryHandler.cs:行号 105
+   在 Zephyr.Data.ExecuteQueryHandler.ExecuteQuery(Boolean useReader, Action action) 位置 e:\private\项目源码\萧勤源码\Zephyr.Net框架源码20131022\source20131022\Zephyr.Net\Zephyr.Data\Command\Handlers\ExecuteQueryHandler.cs:行号 28
+   在 Zephyr.Data.DbCommand.QuerySingle[TEntity](Action`2 customMapper) 位置 e:\private\项目源码\萧勤源码\Zephyr.Net框架源码20131022\source20131022\Zephyr.Net\Zephyr.Data\Command\PartialClasses\QuerySingle.cs:行号 12
+   在 Zephyr.Data.SelectBuilder`1.QuerySingle(Action`2 customMapper) 位置 e:\private\项目源码\萧勤源码\Zephyr.Net框架源码20131022\source20131022\Zephyr.Net\Zephyr.Data\Builders\Select\SelectBuilder.cs:行号 129
+   在 Zephyr.Core.ServiceBase`1.<>c__DisplayClass70.<GetModel>b__6f() 位置 e:\private\项目源码\萧勤源码\Zephyr.Net框架源码20131022\source20131022\Zephyr.Net\Zephyr.Core\Base\ServiceBaseQuery.cs:行号 51
+   在 Zephyr.Core.LogHelper.Logger(ILog log, String function, ErrorHandle errorHandleType, Action tryHandle, Action`1 catchHandle, Action finallyHandle) 位置 e:\private\项目源码\萧勤源码\Zephyr.Net框架源码20131022\source20131022\Zephyr.Net\Zephyr.Core\Logs\LogHelper.cs:行号 44
+2014-01-08 21:28:27,102 [53780] ERROR /login/doAction - System.Exception: 数据库不可用,请检查系统设置后重试！
+   在 Zephyr.Core.LogHelper.Logger(ILog log, String function, ErrorHandle errorHandleType, Action tryHandle, Action`1 catchHandle, Action finallyHandle) 位置 e:\private\项目源码\萧勤源码\Zephyr.Net框架源码20131022\source20131022\Zephyr.Net\Zephyr.Core\Logs\LogHelper.cs:行号 54
+   在 Zephyr.Core.ServiceBase`1.Logger(String function, Action tryHandle, Action`1 catchHandle, Action finallyHandle) 位置 e:\private\项目源码\萧勤源码\Zephyr.Net框架源码20131022\source20131022\Zephyr.Net\Zephyr.Core\Base\ServiceBaseLog.cs:行号 23
+   在 Zephyr.Core.ServiceBase`1.GetModel(ParamQuery param) 位置 e:\private\项目源码\萧勤源码\Zephyr.Net框架源码20131022\source20131022\Zephyr.Net\Zephyr.Core\Base\ServiceBaseQuery.cs:行号 51
+   在 Zephyr.Models.sys_userService.Login(JObject request) 位置 e:\private\项目源码\萧勤源码\Zephyr.Net框架源码20131022\source20131022\Zephyr.Web\Areas\Sys\Models\sys_user.cs:行号 24
+   在 Zephyr.Controllers.LoginController.DoAction(JObject request) 位置 e:\private\项目源码\萧勤源码\Zephyr.Net框架源码20131022\source20131022\Zephyr.Web\Controllers\LoginController.cs:行号 42
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+2014-01-08 21:29:08,943 [35308] DEBUG Sys - select name from dbo.sysobjects where id = object_id(N'[dbo].[fun_getPY]') and xtype in (N'FN', N'IF', N'TF')
+2014-01-08 21:29:12,991 [35308] DEBUG Sys - select name from dbo.sysobjects where id = object_id(N'[dbo].[fun_getPY]') and xtype in (N'FN', N'IF', N'TF')
+2014-01-08 21:29:13,093 [35308] DEBUG Mms - select name from dbo.sysobjects where id = object_id(N'[dbo].[fun_getPY]') and xtype in (N'FN', N'IF', N'TF')
+2014-01-08 21:29:13,684 [35308] DEBUG Mms - select name from dbo.sysobjects where id = object_id(N'[dbo].[fun_getPY]') and xtype in (N'FN', N'IF', N'TF')
+2014-01-08 21:29:19,600 [53096] DEBUG Servicesys_user - 获取实体对象
+2014-01-08 21:29:19,609 [53096] DEBUG Sys - select sys_user.* from sys_user where  UserCode =  'admin'and Password =  '1234'and IsEnable =  'True'
+2014-01-08 21:29:20,782 [53096] DEBUG Sys - 
+update sys_user
+set LoginCount = isnull(LoginCount,0) + 1
+   ,LastLoginDate = getdate()
+where UserCode = 'admin' 
+2014-01-08 21:29:22,013 [53096] DEBUG Sys - insert into sys_loginHistory([UserCode],[UserName],[HostName],[HostIP],[LoginCity],[LoginDate]) values('admin','管理员','fwytech-PC','localhost','上海市','2014/1/8 21:29:22')
+2014-01-08 21:29:22,538 [53096] DEBUG Servicemms_project - 获取实体对象
+2014-01-08 21:29:22,539 [53096] DEBUG Mms - select mms_project.* from mms_project where  ProjectCode =  '201306030001'
+2014-01-08 21:29:23,522 [48632] DEBUG Sys - select * from sys_userSetting where UserCode='admin'
+2014-01-08 21:29:28,441 [48632] DEBUG Sys - 
+--角色的菜单
+select distinct B.*
+from sys_roleMenuMap A
+inner join sys_menu  B on B.MenuCode = A.MenuCode
+where B.IsEnable='1'
+  and RoleCode in (
+  select RoleCode from sys_userRoleMap where UserCode = 'admin' --用户的角色
+union all
+  select RoleCode from sys_organizeRoleMap where OrganizeCode in  --机构的角色
+  (
+	select OrganizeCode from sys_userOrganizeMap where UserCode = 'admin'
+  )  
+)
+order by B.MenuSeq,B.MenuCode
+2014-01-08 21:33:56,780 [53976] DEBUG Sys - select * from sys_userSetting where UserCode='admin'
+2014-01-08 21:33:58,397 [54488] DEBUG Sys - 
+--角色的菜单
+select distinct B.*
+from sys_roleMenuMap A
+inner join sys_menu  B on B.MenuCode = A.MenuCode
+where B.IsEnable='1'
+  and RoleCode in (
+  select RoleCode from sys_userRoleMap where UserCode = 'admin' --用户的角色
+union all
+  select RoleCode from sys_organizeRoleMap where OrganizeCode in  --机构的角色
+  (
+	select OrganizeCode from sys_userOrganizeMap where UserCode = 'admin'
+  )  
+)
+order by B.MenuSeq,B.MenuCode
+2014-01-08 21:36:49,071 [4988] DEBUG Sys - select name from dbo.sysobjects where id = object_id(N'[dbo].[fun_getPY]') and xtype in (N'FN', N'IF', N'TF')
+2014-01-08 21:36:49,119 [4988] DEBUG Sys - select name from dbo.sysobjects where id = object_id(N'[dbo].[fun_getPY]') and xtype in (N'FN', N'IF', N'TF')
+2014-01-08 21:36:49,123 [4988] DEBUG Mms - select name from dbo.sysobjects where id = object_id(N'[dbo].[fun_getPY]') and xtype in (N'FN', N'IF', N'TF')
+2014-01-08 21:36:49,149 [4988] DEBUG Mms - select name from dbo.sysobjects where id = object_id(N'[dbo].[fun_getPY]') and xtype in (N'FN', N'IF', N'TF')
+2014-01-08 21:38:36,521 [32516] DEBUG Sys - select name from dbo.sysobjects where id = object_id(N'[dbo].[fun_getPY]') and xtype in (N'FN', N'IF', N'TF')
+2014-01-08 21:38:36,540 [32516] DEBUG Sys - select name from dbo.sysobjects where id = object_id(N'[dbo].[fun_getPY]') and xtype in (N'FN', N'IF', N'TF')
+2014-01-08 21:38:36,567 [32516] DEBUG Mms - select name from dbo.sysobjects where id = object_id(N'[dbo].[fun_getPY]') and xtype in (N'FN', N'IF', N'TF')
+2014-01-08 21:38:36,588 [32516] DEBUG Mms - select name from dbo.sysobjects where id = object_id(N'[dbo].[fun_getPY]') and xtype in (N'FN', N'IF', N'TF')
+2014-01-08 21:40:09,669 [32084] DEBUG Sys - select name from dbo.sysobjects where id = object_id(N'[dbo].[fun_getPY]') and xtype in (N'FN', N'IF', N'TF')
+2014-01-08 21:40:09,687 [32084] DEBUG Sys - select name from dbo.sysobjects where id = object_id(N'[dbo].[fun_getPY]') and xtype in (N'FN', N'IF', N'TF')
+2014-01-08 21:40:09,690 [32084] DEBUG Mms - select name from dbo.sysobjects where id = object_id(N'[dbo].[fun_getPY]') and xtype in (N'FN', N'IF', N'TF')
+2014-01-08 21:40:09,695 [32084] DEBUG Mms - select name from dbo.sysobjects where id = object_id(N'[dbo].[fun_getPY]') and xtype in (N'FN', N'IF', N'TF')
+2014-01-08 21:41:01,261 [48928] DEBUG Servicesys_user - 获取实体对象
+2014-01-08 21:41:01,270 [48928] DEBUG Sys - select sys_user.* from sys_user where  UserCode =  'admin'and Password =  '12345'and IsEnable =  'True'
+2014-01-08 21:41:09,152 [48928] DEBUG Servicesys_user - 获取实体对象
+2014-01-08 21:41:09,152 [48928] DEBUG Sys - select sys_user.* from sys_user where  UserCode =  'admin'and Password =  '1234'and IsEnable =  'True'
+2014-01-08 21:41:09,332 [48928] DEBUG Sys - 
+update sys_user
+set LoginCount = isnull(LoginCount,0) + 1
+   ,LastLoginDate = getdate()
+where UserCode = 'admin' 
+2014-01-08 21:41:14,535 [48928] DEBUG Sys - insert into sys_loginHistory([UserCode],[UserName],[HostName],[HostIP],[LoginCity],[LoginDate]) values('admin','管理员','fwytech-PC','localhost','上海市','2014/1/8 21:41:14')
+2014-01-08 21:41:14,538 [48928] DEBUG Servicemms_project - 获取实体对象
+2014-01-08 21:41:14,539 [48928] DEBUG Mms - select mms_project.* from mms_project where  ProjectCode =  '201306030001'
+2014-01-08 21:41:14,829 [55264] DEBUG Sys - select * from sys_userSetting where UserCode='admin'
+2014-01-08 21:41:19,121 [48928] DEBUG Sys - 
+--角色的菜单
+select distinct B.*
+from sys_roleMenuMap A
+inner join sys_menu  B on B.MenuCode = A.MenuCode
+where B.IsEnable='1'
+  and RoleCode in (
+  select RoleCode from sys_userRoleMap where UserCode = 'admin' --用户的角色
+union all
+  select RoleCode from sys_organizeRoleMap where OrganizeCode in  --机构的角色
+  (
+	select OrganizeCode from sys_userOrganizeMap where UserCode = 'admin'
+  )  
+)
+order by B.MenuSeq,B.MenuCode
+2014-01-08 21:43:23,294 [53448] DEBUG Sys - select name from dbo.sysobjects where id = object_id(N'[dbo].[fun_getPY]') and xtype in (N'FN', N'IF', N'TF')
+2014-01-08 21:43:23,317 [53448] DEBUG Sys - select name from dbo.sysobjects where id = object_id(N'[dbo].[fun_getPY]') and xtype in (N'FN', N'IF', N'TF')
+2014-01-08 21:43:23,348 [53448] DEBUG Mms - select name from dbo.sysobjects where id = object_id(N'[dbo].[fun_getPY]') and xtype in (N'FN', N'IF', N'TF')
+2014-01-08 21:43:23,352 [53448] DEBUG Mms - select name from dbo.sysobjects where id = object_id(N'[dbo].[fun_getPY]') and xtype in (N'FN', N'IF', N'TF')
+2014-01-08 21:43:23,651 [53448] DEBUG Sys - select * from sys_userSetting where UserCode='admin'
+2014-01-08 21:43:26,753 [52424] DEBUG Sys - 
+--角色的菜单
+select distinct B.*
+from sys_roleMenuMap A
+inner join sys_menu  B on B.MenuCode = A.MenuCode
+where B.IsEnable='1'
+  and RoleCode in (
+  select RoleCode from sys_userRoleMap where UserCode = 'admin' --用户的角色
+union all
+  select RoleCode from sys_organizeRoleMap where OrganizeCode in  --机构的角色
+  (
+	select OrganizeCode from sys_userOrganizeMap where UserCode = 'admin'
+  )  
+)
+order by B.MenuSeq,B.MenuCode
+2014-01-08 21:48:00,346 [48752] DEBUG Servicesys_user - 获取实体对象
+2014-01-08 21:48:00,354 [48752] DEBUG Sys - select sys_user.* from sys_user where  UserCode =  'admin'and Password =  '1234'and IsEnable =  'True'
+2014-01-08 21:48:00,364 [48752] DEBUG Sys - 
+update sys_user
+set LoginCount = isnull(LoginCount,0) + 1
+   ,LastLoginDate = getdate()
+where UserCode = 'admin' 
+2014-01-08 21:48:00,384 [48752] DEBUG Sys - insert into sys_loginHistory([UserCode],[UserName],[HostName],[HostIP],[LoginCity],[LoginDate]) values('admin','管理员','fwytech-PC','localhost','上海市','2014/1/8 21:48:00')
+2014-01-08 21:48:00,441 [48752] DEBUG Servicemms_project - 获取实体对象
+2014-01-08 21:48:00,441 [48752] DEBUG Mms - select mms_project.* from mms_project where  ProjectCode =  '201306030001'
+2014-01-08 21:48:00,468 [31960] DEBUG Sys - select * from sys_userSetting where UserCode='admin'
+2014-01-08 21:48:00,590 [48752] DEBUG Sys - 
+--角色的菜单
+select distinct B.*
+from sys_roleMenuMap A
+inner join sys_menu  B on B.MenuCode = A.MenuCode
+where B.IsEnable='1'
+  and RoleCode in (
+  select RoleCode from sys_userRoleMap where UserCode = 'admin' --用户的角色
+union all
+  select RoleCode from sys_organizeRoleMap where OrganizeCode in  --机构的角色
+  (
+	select OrganizeCode from sys_userOrganizeMap where UserCode = 'admin'
+  )  
+)
+order by B.MenuSeq,B.MenuCode
+2014-01-08 21:48:06,588 [53448] DEBUG Sys - 
+select 1
+from sys_roleMenuMap A
+left join sys_userRoleMap B on B.RoleCode = A.RoleCode
+left join sys_menu C on C.MenuCode = A.MenuCode
+where B.UserCode = 'admin'
+and C.URL in ('/Mms/receive/Index','/Mms/receive')
+2014-01-08 21:48:08,835 [53448] DEBUG Servicemms_warehouse - 获取动态列表
+2014-01-08 21:48:08,837 [53448] DEBUG Mms - select WarehouseCode as value,WarehouseName as text from mms_warehouse where  ProjectCode =  '201306030001'
+2014-01-08 21:48:09,184 [53448] DEBUG Servicesys_code - 获取动态列表
+2014-01-08 21:48:09,185 [53448] DEBUG Sys - select Code as value,Text as text from sys_code where  CodeType =  'SupplyType'
+2014-01-08 21:48:12,506 [53448] DEBUG Servicemms_receive - 获取动态列表
+2014-01-08 21:48:12,506 [53448] DEBUG Mms - select top 20 
+        A.*, B.ProjectName, C.MaterialTypeName, D.WarehouseName as WarehouseName, E.MerchantsName AS SupplierName
+     from 
+        mms_receive A
+        left join mms_project       B on B.ProjectCode      = A.ProjectCode
+        left join mms_materialType  C on C.MaterialType = A.MaterialType
+        left join mms_warehouse         D on D.WarehouseCode       = A.WarehouseCode
+        left join mms_merchants     E on E.MerchantsCode    = A.SupplierCode
+     where  A.ProjectCode =  '201306030001' order by A.BillNo
+2014-01-08 21:48:13,643 [53448] DEBUG Mms - select count(*) from ( select 
+        A.*, B.ProjectName, C.MaterialTypeName, D.WarehouseName as WarehouseName, E.MerchantsName AS SupplierName
+     from 
+        mms_receive A
+        left join mms_project       B on B.ProjectCode      = A.ProjectCode
+        left join mms_materialType  C on C.MaterialType = A.MaterialType
+        left join mms_warehouse         D on D.WarehouseCode       = A.WarehouseCode
+        left join mms_merchants     E on E.MerchantsCode    = A.SupplierCode
+     where  A.ProjectCode =  '201306030001' ) tb_temp
+2014-01-08 21:48:17,729 [52424] DEBUG Sys - 
+select 1
+from sys_roleMenuMap A
+left join sys_userRoleMap B on B.RoleCode = A.RoleCode
+left join sys_menu C on C.MenuCode = A.MenuCode
+where B.UserCode = 'admin'
+and C.URL in ('/Mms/merchant/Index','/Mms/merchant')
+2014-01-08 21:48:18,580 [52424] DEBUG Servicemms_merchants - 获取实体列表
+2014-01-08 21:48:18,584 [52424] DEBUG Mms - select top 20 mms_merchants.* from mms_merchants order by MerchantsCode
+2014-01-08 21:48:18,625 [52424] DEBUG Mms - select count(*) from ( select mms_merchants.* from mms_merchants ) tb_temp
+2014-01-08 21:48:18,693 [48752] DEBUG Servicemms_merchantsType - 获取动态列表
+2014-01-08 21:48:18,693 [48752] DEBUG Mms - select mms_merchantsType.* from mms_merchantsType order by MerchantsTypeCode
+2014-01-08 21:48:21,134 [48752] DEBUG Sys - 
+select 1
+from sys_roleMenuMap A
+left join sys_userRoleMap B on B.RoleCode = A.RoleCode
+left join sys_menu C on C.MenuCode = A.MenuCode
+where B.UserCode = 'admin'
+and C.URL in ('/Mms/project/Index','/Mms/project')
+2014-01-08 21:48:21,169 [48752] DEBUG Servicemms_project - 获取实体对象
+2014-01-08 21:48:21,169 [48752] DEBUG Mms - select mms_project.* from mms_project where  ProjectCode =  '201306030001'
+2014-01-08 21:48:21,173 [48752] DEBUG Servicemms_project - 获取上一条下一条数据
+2014-01-08 21:48:21,194 [48752] DEBUG Servicemms_project - 获取字段
+2014-01-08 21:48:21,195 [48752] DEBUG Mms - select top 1 ProjectCode from mms_project where  ProjectCode =  '201306030001' order by ProjectCode
+2014-01-08 21:48:21,214 [48752] DEBUG Servicemms_project - 获取字段
+2014-01-08 21:48:21,214 [48752] DEBUG Mms - select top 1 ProjectCode from mms_project where  ProjectCode < '201306030001'and ProjectCode =  '201306030001' order by ProjectCode desc
+2014-01-08 21:48:21,351 [48752] DEBUG Servicemms_project - 获取字段
+2014-01-08 21:48:21,352 [48752] DEBUG Mms - select top 1 ProjectCode from mms_project where  ProjectCode >  '201306030001'and ProjectCode =  '201306030001' order by ProjectCode
+2014-01-08 21:48:21,353 [48752] DEBUG Servicemms_project - 获取字段
+2014-01-08 21:48:21,353 [48752] DEBUG Mms - select top 1 ProjectCode from mms_project where  ProjectCode =  '201306030001' order by ProjectCode desc
+2014-01-08 21:48:21,367 [48752] DEBUG Servicesys_code - 获取动态列表
+2014-01-08 21:48:21,367 [48752] DEBUG Sys - select Code as value,Text as text from sys_code where  CodeType =  'PartAttr'
+2014-01-08 21:48:21,386 [48752] DEBUG Servicesys_code - 获取动态列表
+2014-01-08 21:48:21,386 [48752] DEBUG Sys - select Code as value,Text as text from sys_code where  CodeType =  'ImagePart'
+2014-01-08 21:48:23,339 [52424] DEBUG Servicemms_project - 获取动态列表
+2014-01-08 21:48:23,340 [52424] DEBUG Mms - select ProjectName as text,ProjectCode as id,ParentCode as pid from mms_project
+2014-01-08 21:48:23,404 [56212] DEBUG Servicemms_project - 获取实体对象
+2014-01-08 21:48:23,404 [56212] DEBUG Mms - select mms_project.* from mms_project where  ProjectCode =  '201306030001'
+2014-01-08 21:48:23,405 [53448] DEBUG Servicemms_buildPart - 获取实体列表
+2014-01-08 21:48:23,405 [56212] DEBUG Servicemms_project - 获取上一条下一条数据
+2014-01-08 21:48:23,405 [56212] DEBUG Servicemms_project - 获取字段
+2014-01-08 21:48:23,405 [56212] DEBUG Mms - select top 1 ProjectCode from mms_project where  ProjectCode =  '201306030001' order by ProjectCode
+2014-01-08 21:48:23,405 [56212] DEBUG Servicemms_project - 获取字段
+2014-01-08 21:48:23,405 [56212] DEBUG Mms - select top 1 ProjectCode from mms_project where  ProjectCode < '201306030001'and ProjectCode =  '201306030001' order by ProjectCode desc
+2014-01-08 21:48:23,405 [56212] DEBUG Servicemms_project - 获取字段
+2014-01-08 21:48:23,406 [56212] DEBUG Mms - select top 1 ProjectCode from mms_project where  ProjectCode >  '201306030001'and ProjectCode =  '201306030001' order by ProjectCode
+2014-01-08 21:48:23,406 [56212] DEBUG Servicemms_project - 获取字段
+2014-01-08 21:48:23,406 [56212] DEBUG Mms - select top 1 ProjectCode from mms_project where  ProjectCode =  '201306030001' order by ProjectCode desc
+2014-01-08 21:48:23,429 [53448] DEBUG Mms - select mms_buildPart.* from mms_buildPart where  ProjectCode =  '201306030001'
+2014-01-08 21:48:27,000 [52692] DEBUG Servicemms_buildPart - 获取实体列表
+2014-01-08 21:48:27,000 [52692] DEBUG Mms - select mms_buildPart.* from mms_buildPart where  ProjectCode =  '201306030002'
+2014-01-08 21:48:27,007 [56212] DEBUG Servicemms_project - 获取实体对象
+2014-01-08 21:48:27,007 [56212] DEBUG Mms - select mms_project.* from mms_project where  ProjectCode =  '201306030002'
+2014-01-08 21:48:27,096 [56212] DEBUG Servicemms_project - 获取上一条下一条数据
+2014-01-08 21:48:27,096 [56212] DEBUG Servicemms_project - 获取字段
+2014-01-08 21:48:27,096 [56212] DEBUG Mms - select top 1 ProjectCode from mms_project where  ProjectCode =  '201306030002' order by ProjectCode
+2014-01-08 21:48:27,119 [56212] DEBUG Servicemms_project - 获取字段
+2014-01-08 21:48:27,119 [56212] DEBUG Mms - select top 1 ProjectCode from mms_project where  ProjectCode < '201306030002'and ProjectCode =  '201306030002' order by ProjectCode desc
+2014-01-08 21:48:27,128 [56212] DEBUG Servicemms_project - 获取字段
+2014-01-08 21:48:27,128 [56212] DEBUG Mms - select top 1 ProjectCode from mms_project where  ProjectCode >  '201306030002'and ProjectCode =  '201306030002' order by ProjectCode
+2014-01-08 21:48:27,129 [56212] DEBUG Servicemms_project - 获取字段
+2014-01-08 21:48:27,129 [56212] DEBUG Mms - select top 1 ProjectCode from mms_project where  ProjectCode =  '201306030002' order by ProjectCode desc
+2014-01-08 21:48:33,127 [53448] DEBUG Sys - 
+select 1
+from sys_roleMenuMap A
+left join sys_userRoleMap B on B.RoleCode = A.RoleCode
+left join sys_menu C on C.MenuCode = A.MenuCode
+where B.UserCode = 'admin'
+and C.URL in ('/Mms/warehouse/Index','/Mms/warehouse')
+2014-01-08 21:48:34,089 [56212] DEBUG Servicemms_project - 获取动态列表
+2014-01-08 21:48:34,089 [56212] DEBUG Mms - select ProjectName as text,ProjectCode as id,ParentCode as pid from mms_project
+2014-01-08 21:48:34,109 [52424] DEBUG Servicemms_warehouse - 获取实体列表
+2014-01-08 21:48:34,109 [52424] DEBUG Mms - select top 20 mms_warehouse.* from mms_warehouse order by WarehouseCode
+2014-01-08 21:48:34,131 [52424] DEBUG Mms - select count(*) from ( select mms_warehouse.* from mms_warehouse ) tb_temp
+2014-01-08 21:48:36,501 [52692] DEBUG Sys - 
+select 1
+from sys_roleMenuMap A
+left join sys_userRoleMap B on B.RoleCode = A.RoleCode
+left join sys_menu C on C.MenuCode = A.MenuCode
+where B.UserCode = 'admin'
+and C.URL in ('/Mms/material/Index','/Mms/material')
+2014-01-08 21:48:37,646 [56212] DEBUG Servicemms_materialType - 获取动态列表
+2014-01-08 21:48:37,647 [56212] DEBUG Mms - select mms_materialType.* from mms_materialType order by MaterialType
+2014-01-08 21:48:37,673 [48752] DEBUG Servicemms_material - 获取实体列表
+2014-01-08 21:48:37,674 [48752] DEBUG Mms - select top 20 mms_material.* from mms_material order by MaterialCode
+2014-01-08 21:48:37,914 [48752] DEBUG Mms - select count(*) from ( select mms_material.* from mms_material ) tb_temp
+2014-01-08 21:48:47,258 [53448] DEBUG Sys - 
+select 1
+from sys_roleMenuMap A
+left join sys_userRoleMap B on B.RoleCode = A.RoleCode
+left join sys_menu C on C.MenuCode = A.MenuCode
+where B.UserCode = 'admin'
+and C.URL in ('/Sys/menu/Index','/Sys/menu')
+2014-01-08 21:48:48,197 [56212] DEBUG Servicesys_menu - 获取动态列表
+2014-01-08 21:48:48,197 [56212] DEBUG Sys - select A.*,B.MenuName as ParentName from sys_menu A left join sys_menu B on B.MenuCode = A.ParentCode order by A.MenuSeq,A.MenuCode
+2014-01-08 21:48:56,954 [31960] DEBUG Sys - 
+select 1
+from sys_roleMenuMap A
+left join sys_userRoleMap B on B.RoleCode = A.RoleCode
+left join sys_menu C on C.MenuCode = A.MenuCode
+where B.UserCode = 'admin'
+and C.URL in ('/Sys/permission/Index','/Sys/permission')
+2014-01-08 21:48:57,871 [53448] DEBUG Servicesys_permission - 获取动态列表
+2014-01-08 21:48:57,871 [53448] DEBUG Sys - select A.*,B.PermissionName as ParentName from sys_permission A left join sys_permission B on B.PermissionCode = A.ParentCode
+2014-01-08 21:48:58,645 [52692] DEBUG Sys - 
+select 1
+from sys_roleMenuMap A
+left join sys_userRoleMap B on B.RoleCode = A.RoleCode
+left join sys_menu C on C.MenuCode = A.MenuCode
+where B.UserCode = 'admin'
+and C.URL in ('/Sys/organize/Index','/Sys/organize')
+2014-01-08 21:48:58,923 [52692] DEBUG Servicesys_organize - 获取实体列表
+2014-01-08 21:48:58,923 [52692] DEBUG Sys - select sys_organize.* from sys_organize
+2014-01-08 21:49:07,485 [48752] DEBUG Sys - 
+select 1
+from sys_roleMenuMap A
+left join sys_userRoleMap B on B.RoleCode = A.RoleCode
+left join sys_menu C on C.MenuCode = A.MenuCode
+where B.UserCode = 'admin'
+and C.URL in ('/Sys/user/Index','/Sys/user')
+2014-01-08 21:49:09,272 [31960] DEBUG Servicesys_organize - 获取实体列表
+2014-01-08 21:49:09,272 [31960] DEBUG Sys - select sys_organize.* from sys_organize
+2014-01-08 21:49:09,325 [53448] DEBUG Servicesys_user - 获取实体列表
+2014-01-08 21:49:09,325 [53448] DEBUG Sys - select top 20 sys_user.* from sys_user order by UserSeq
+2014-01-08 21:49:09,468 [53448] DEBUG Sys - select count(*) from ( select sys_user.* from sys_user ) tb_temp
+2014-01-08 21:49:41,024 [53448] DEBUG Sys - 
+select 1
+from sys_roleMenuMap A
+left join sys_userRoleMap B on B.RoleCode = A.RoleCode
+left join sys_menu C on C.MenuCode = A.MenuCode
+where B.UserCode = 'admin'
+and C.URL in ('/Sys/parameter/Index','/Sys/parameter')
+2014-01-08 21:49:41,990 [53448] DEBUG Servicesys_parameter - 获取实体列表
+2014-01-08 21:49:41,991 [53448] DEBUG Sys - select top 20 sys_parameter.* from sys_parameter order by ParamCode
+2014-01-08 21:49:42,121 [53448] DEBUG Sys - select count(*) from ( select sys_parameter.* from sys_parameter ) tb_temp
+2014-01-08 21:49:52,609 [53448] DEBUG Sys - 
+select 1
+from sys_roleMenuMap A
+left join sys_userRoleMap B on B.RoleCode = A.RoleCode
+left join sys_menu C on C.MenuCode = A.MenuCode
+where B.UserCode = 'admin'
+and C.URL in ('/Sys/log/Index','/Sys/log')
+2014-01-08 21:49:53,663 [31960] DEBUG Servicesys_loginHistory - 获取实体列表
+2014-01-08 21:49:53,664 [31960] DEBUG Sys - select top 20 
+        A.*
+     from 
+        sys_loginHistory A
+     order by A.ID desc
+2014-01-08 21:49:53,666 [52076] DEBUG Servicesys_log - 获取实体列表
+2014-01-08 21:49:53,688 [31960] DEBUG Sys - select count(*) from ( select 
+        A.*
+     from 
+        sys_loginHistory A
+     ) tb_temp
+2014-01-08 21:49:53,761 [52076] DEBUG Sys - select top 20 
+        A.*
+     from 
+        sys_log A
+     order by A.ID desc
+2014-01-08 21:49:54,207 [52076] DEBUG Sys - select count(*) from ( select 
+        A.*
+     from 
+        sys_log A
+     ) tb_temp

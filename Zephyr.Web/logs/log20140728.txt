@@ -1,0 +1,30 @@
+2014-07-28 13:13:09,425 [13132] DEBUG Sys - select name from dbo.sysobjects where id = object_id(N'[dbo].[fun_getPY]') and xtype in (N'FN', N'IF', N'TF')
+2014-07-28 13:13:10,427 [13132] DEBUG Sys - select name from dbo.sysobjects where id = object_id(N'[dbo].[fun_getPY]') and xtype in (N'FN', N'IF', N'TF')
+2014-07-28 13:13:10,533 [13132] DEBUG Mms - select name from dbo.sysobjects where id = object_id(N'[dbo].[fun_getPY]') and xtype in (N'FN', N'IF', N'TF')
+2014-07-28 13:13:11,234 [13132] DEBUG Mms - select name from dbo.sysobjects where id = object_id(N'[dbo].[fun_getPY]') and xtype in (N'FN', N'IF', N'TF')
+2014-07-28 13:13:38,710 [12324] DEBUG Servicesys_user - 获取实体对象
+2014-07-28 13:13:38,744 [12324] DEBUG Sys - select sys_user.* from sys_user where  UserCode =  'admin'and Password =  'admin'and IsEnable =  'True'
+2014-07-28 13:13:38,911 [12324] DEBUG Sys - 
+update sys_user
+set LoginCount = isnull(LoginCount,0) + 1
+   ,LastLoginDate = getdate()
+where UserCode = 'admin' 
+2014-07-28 13:13:39,199 [12324] DEBUG Sys - insert into sys_loginHistory([UserCode],[UserName],[HostName],[HostIP],[LoginCity],[LoginDate]) values('admin','管理员','FWY_TECH','localhost','上海市','7/28 13:13:39')
+2014-07-28 13:13:39,243 [12324] DEBUG Servicemms_project - 获取实体对象
+2014-07-28 13:13:39,244 [12324] DEBUG Mms - select mms_project.* from mms_project where  ProjectCode =  '201306030001'
+2014-07-28 13:13:39,796 [6556] DEBUG Sys - select * from sys_userSetting where UserCode='admin'
+2014-07-28 13:13:45,598 [10952] DEBUG Sys - 
+--角色的菜单
+select distinct B.*
+from sys_roleMenuMap A
+inner join sys_menu  B on B.MenuCode = A.MenuCode
+where B.IsEnable='1'
+  and RoleCode in (
+  select RoleCode from sys_userRoleMap where UserCode = 'admin' --用户的角色
+union all
+  select RoleCode from sys_organizeRoleMap where OrganizeCode in  --机构的角色
+  (
+	select OrganizeCode from sys_userOrganizeMap where UserCode = 'admin'
+  )  
+)
+order by B.MenuSeq,B.MenuCode
