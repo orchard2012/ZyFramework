@@ -262,6 +262,11 @@
     <Compile Include="Areas\Psi\Models\psi_warehouse.cs" />
     <Compile Include="Areas\Psi\Models\psi_warehouseStock.cs" />
     <Compile Include="Areas\Psi\PsiAreaRegistration.cs" />
+    <Compile Include="Areas\Stm\Common\StmBaseApi.cs" />
+    <Compile Include="Areas\Stm\Common\StmHelper.cs" />
+    <Compile Include="Areas\Stm\Common\StmService.cs" />
+    <Compile Include="Areas\Stm\Controllers\EntStreetTypeController.cs" />
+    <Compile Include="Areas\Stm\StmAreaRegistration.cs" />
     <Compile Include="Areas\Sys\Common\HtmlHelperExtensions.cs" />
     <Compile Include="Areas\Sys\Controllers\GeneratorController.cs" />
     <Compile Include="Areas\Sys\Controllers\MyLogController.cs" />
